@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { CalendarDays, Info, ClipboardList } from 'lucide-vue-next'
+import DateNav from './components/DateNav.vue'
 import itinerary from './data/itinerary.json'
 
 const route = useRoute()
@@ -11,6 +12,8 @@ const currentTab = computed(() => {
   if (route.name === 'packing') return 'packing'
   return 'itinerary'
 })
+
+const showDateNav = computed(() => currentTab.value === 'itinerary')
 
 const tripTitle = itinerary.trip.title
 </script>
@@ -22,6 +25,9 @@ const tripTitle = itinerary.trip.title
       <h1 class="app-title font-display">{{ tripTitle }}</h1>
       <p class="app-subtitle">{{ itinerary.trip.startDate.slice(5) }} — {{ itinerary.trip.endDate.slice(5) }}</p>
     </header>
+
+    <!-- Date Nav (persistent, outside router-view) -->
+    <DateNav v-if="showDateNav" />
 
     <!-- Main Content -->
     <main class="app-main">
