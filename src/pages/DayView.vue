@@ -5,6 +5,7 @@ import { useItinerary } from '../composables/useItinerary'
 import TimelineCard from '../components/TimelineCard.vue'
 import MarathonBanner from '../components/MarathonBanner.vue'
 import CountdownChip from '../components/CountdownChip.vue'
+import WeatherBadge from '../components/WeatherBadge.vue'
 
 const route = useRoute()
 const { getDayByNum, isMarathonDay } = useItinerary()
@@ -41,7 +42,10 @@ function getThemeLabel(theme) {
             <span class="day-date font-mono">11/{{ day.dayNum }}</span>
             <span class="day-theme-tag">{{ getThemeLabel(day.theme) }}</span>
           </div>
-          <CountdownChip v-if="isMarathon" />
+          <div class="day-header-right">
+            <WeatherBadge :date="day.date" />
+            <CountdownChip v-if="isMarathon" />
+          </div>
         </div>
         <h2 class="day-label font-display">{{ day.label }}</h2>
       </div>
@@ -56,6 +60,7 @@ function getThemeLabel(theme) {
           :key="idx"
           :event="event"
           :index="idx"
+          :day-num="day.dayNum"
           :is-marathon-day="isMarathon"
         />
       </div>
@@ -120,6 +125,12 @@ function getThemeLabel(theme) {
 
 .marathon-header .day-label {
   color: var(--accent-primary);
+}
+
+.day-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 /* Timeline */

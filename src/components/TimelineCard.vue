@@ -1,14 +1,25 @@
 <script setup>
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { useItinerary } from '../composables/useItinerary'
-import { MapPin, ExternalLink } from 'lucide-vue-next'
+import { MapPin, ExternalLink, Navigation } from 'lucide-vue-next'
 import { resolveIcon } from '../utils/iconMap'
 
 const props = defineProps({
   event: { type: Object, required: true },
   index: { type: Number, default: 0 },
   isMarathonDay: { type: Boolean, default: false },
+  dayNum: { type: Number, default: 0 },
 })
+
+const router = useRouter()
+const hasCoords = computed(() => props.event.lat != null && props.event.lng != null)
+
+function openMap() {
+  if (hasCoords.value) {
+    router.push({ path: '/map', query: { day: props.dayNum, event: props.index } })
+  }
+}
 
 const { getCategoryColor, getCategorySoftColor } = useItinerary()
 
@@ -59,6 +70,16 @@ const staggerDelay = computed(() => `${props.index * 40}ms`)
 
         <p v-if="event.note" class="card-note">{{ event.note }}</p>
       </div>
+
+      <!-- Map navigation button -->
+      <button
+        v-if="hasCoords"
+        class="card-nav-btn"
+        @click.stop="openMap"
+        aria-label="在地圖上查看"
+      >
+        <Navigation :size="14" :stroke-width="1.5" />
+      </button>
     </div>
   </div>
 </template>
@@ -186,6 +207,25 @@ const staggerDelay = computed(() => `${props.index * 40}ms`)
   font-size: 0.82rem;
   color: var(--text-secondary);
   line-height: 1.5;
+}
+
+.card-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  color: var(--accent-transport);
+  opacity: 0.5;
+  flex-shrink: 0;
+  align-self: center;
+  transition: opacity var(--duration-fast), background var(--duration-fast);
+}
+
+.card-nav-btn:active {
+  opacity: 1;
+  background: var(--accent-transport-soft);
 }
 
 .highlight .time-text {

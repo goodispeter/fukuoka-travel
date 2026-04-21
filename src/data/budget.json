@@ -1,0 +1,95 @@
+{
+  "currency": "JPY",
+  "exchangeRate": { "TWD": 0.22, "note": "1 JPY ≈ 0.22 TWD（參考值）" },
+  "days": [
+    {
+      "date": "2026-11-06",
+      "dayNum": 6,
+      "items": [
+        { "category": "transport", "label": "機場→博多 地鐵", "amount": 260 },
+        { "category": "food", "label": "午餐", "amount": 1000 },
+        { "category": "food", "label": "一蘭拉麵", "amount": 1080 },
+        { "category": "food", "label": "中洲屋台", "amount": 2000 },
+        { "category": "accommodation", "label": "飯店", "amount": 8000 }
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "dayNum": 7,
+      "items": [
+        { "category": "transport", "label": "市內交通", "amount": 640 },
+        { "category": "food", "label": "博多うどん", "amount": 800 },
+        { "category": "food", "label": "晚餐", "amount": 1500 },
+        { "category": "activity", "label": "福岡塔門票", "amount": 800 },
+        { "category": "accommodation", "label": "飯店", "amount": 8000 }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "dayNum": 8,
+      "items": [
+        { "category": "transport", "label": "博多→天神", "amount": 260 },
+        { "category": "food", "label": "賽前早餐", "amount": 500 },
+        { "category": "food", "label": "慶功晚餐 もつ鍋", "amount": 4000 },
+        { "category": "food", "label": "飲料補給", "amount": 500 },
+        { "category": "accommodation", "label": "飯店", "amount": 8000 }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "dayNum": 9,
+      "items": [
+        { "category": "transport", "label": "市內交通", "amount": 640 },
+        { "category": "food", "label": "水炊き 午餐", "amount": 2500 },
+        { "category": "food", "label": "燒鳥晚餐", "amount": 2000 },
+        { "category": "shopping", "label": "藥妝採購", "amount": 5000 },
+        { "category": "accommodation", "label": "飯店", "amount": 8000 }
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "dayNum": 10,
+      "items": [
+        { "category": "transport", "label": "西鐵 天神↔太宰府", "amount": 840 },
+        { "category": "food", "label": "梅ヶ枝餅", "amount": 400 },
+        { "category": "food", "label": "午餐", "amount": 1200 },
+        { "category": "food", "label": "明太子晚餐", "amount": 2000 },
+        { "category": "activity", "label": "九州國立博物館", "amount": 700 },
+        { "category": "accommodation", "label": "飯店", "amount": 8000 }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "dayNum": 11,
+      "items": [
+        { "category": "transport", "label": "西鐵＋JR 交通", "amount": 3500 },
+        { "category": "food", "label": "柳川鰻魚飯", "amount": 3000 },
+        { "category": "food", "label": "門司港燒咖哩", "amount": 1200 },
+        { "category": "activity", "label": "柳川遊船", "amount": 1800 },
+        { "category": "accommodation", "label": "飯店", "amount": 8000 }
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "dayNum": 12,
+      "items": [
+        { "category": "transport", "label": "市內交通", "amount": 640 },
+        { "category": "food", "label": "天神午餐", "amount": 1200 },
+        { "category": "food", "label": "鐵鍋餃子", "amount": 1500 },
+        { "category": "shopping", "label": "天神購物", "amount": 8000 },
+        { "category": "shopping", "label": "伴手禮", "amount": 5000 },
+        { "category": "activity", "label": "福岡市美術館", "amount": 200 },
+        { "category": "accommodation", "label": "飯店", "amount": 8000 }
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "dayNum": 13,
+      "items": [
+        { "category": "transport", "label": "博多→機場", "amount": 260 },
+        { "category": "shopping", "label": "機場免稅", "amount": 3000 },
+        { "category": "food", "label": "機場午餐", "amount": 1200 }
+      ]
+    }
+  ]
+}

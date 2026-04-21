@@ -6,8 +6,9 @@ import './styles/global.css'
 const routes = [
   { path: '/', redirect: '/day/6' },
   { path: '/day/:dayNum', name: 'day', component: () => import('./pages/DayView.vue') },
-  { path: '/info', name: 'info', component: () => import('./pages/InfoView.vue') },
-  { path: '/packing', name: 'packing', component: () => import('./pages/PackingView.vue') },
+  { path: '/map', name: 'map', component: () => import('./pages/MapView.vue') },
+  { path: '/phrases', name: 'phrases', component: () => import('./pages/PhrasesView.vue') },
+  { path: '/more', name: 'more', component: () => import('./pages/MoreView.vue') },
 ]
 
 const router = createRouter({

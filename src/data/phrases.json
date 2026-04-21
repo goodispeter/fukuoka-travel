@@ -1,0 +1,81 @@
+{
+  "categories": [
+    {
+      "key": "greetings",
+      "label": "基本招呼",
+      "icon": "hand-metal",
+      "phrases": [
+        { "ja": "こんにちは", "romaji": "Konnichiwa", "zh": "你好" },
+        { "ja": "ありがとうございます", "romaji": "Arigatou gozaimasu", "zh": "非常感謝" },
+        { "ja": "すみません", "romaji": "Sumimasen", "zh": "不好意思 / 借過" },
+        { "ja": "お願いします", "romaji": "Onegai shimasu", "zh": "拜託了 / 麻煩你" },
+        { "ja": "大丈夫です", "romaji": "Daijoubu desu", "zh": "沒問題 / 不用了" }
+      ]
+    },
+    {
+      "key": "restaurant",
+      "label": "餐廳點餐",
+      "icon": "utensils",
+      "phrases": [
+        { "ja": "一人です", "romaji": "Hitori desu", "zh": "一位（一個人）" },
+        { "ja": "二人です", "romaji": "Futari desu", "zh": "兩位" },
+        { "ja": "これをください", "romaji": "Kore wo kudasai", "zh": "請給我這個" },
+        { "ja": "おすすめは何ですか", "romaji": "Osusume wa nan desu ka", "zh": "推薦什麼？" },
+        { "ja": "お会計お願いします", "romaji": "Okaikei onegai shimasu", "zh": "請結帳" },
+        { "ja": "ごちそうさまでした", "romaji": "Gochisousama deshita", "zh": "謝謝招待（吃完說）" },
+        { "ja": "アレルギーがあります", "romaji": "Arerugii ga arimasu", "zh": "我有過敏" },
+        { "ja": "辛くしないでください", "romaji": "Karaku shinaide kudasai", "zh": "請不要辣" }
+      ]
+    },
+    {
+      "key": "transport",
+      "label": "交通問路",
+      "icon": "train-front",
+      "phrases": [
+        { "ja": "〇〇はどこですか", "romaji": "〇〇 wa doko desu ka", "zh": "〇〇在哪裡？" },
+        { "ja": "博多駅はどう行きますか", "romaji": "Hakata-eki wa dou ikimasu ka", "zh": "博多站怎麼走？" },
+        { "ja": "この電車は〇〇に行きますか", "romaji": "Kono densha wa 〇〇 ni ikimasu ka", "zh": "這班電車到〇〇嗎？" },
+        { "ja": "次の駅はどこですか", "romaji": "Tsugi no eki wa doko desu ka", "zh": "下一站是哪裡？" },
+        { "ja": "タクシーを呼んでください", "romaji": "Takushii wo yonde kudasai", "zh": "請幫我叫計程車" }
+      ]
+    },
+    {
+      "key": "shopping",
+      "label": "購物",
+      "icon": "shopping-bag",
+      "phrases": [
+        { "ja": "いくらですか", "romaji": "Ikura desu ka", "zh": "多少錢？" },
+        { "ja": "カードは使えますか", "romaji": "Kaado wa tsukaemasu ka", "zh": "可以刷卡嗎？" },
+        { "ja": "免税できますか", "romaji": "Menzei dekimasu ka", "zh": "可以免稅嗎？" },
+        { "ja": "試着してもいいですか", "romaji": "Shichaku shitemo ii desu ka", "zh": "可以試穿嗎？" },
+        { "ja": "袋をください", "romaji": "Fukuro wo kudasai", "zh": "請給我袋子" }
+      ]
+    },
+    {
+      "key": "marathon",
+      "label": "馬拉松相關",
+      "icon": "trophy",
+      "phrases": [
+        { "ja": "スタート地点はどこですか", "romaji": "Staato chiten wa doko desu ka", "zh": "起跑點在哪裡？" },
+        { "ja": "給水所はどこですか", "romaji": "Kyuusuijo wa doko desu ka", "zh": "補水站在哪裡？" },
+        { "ja": "トイレはどこですか", "romaji": "Toire wa doko desu ka", "zh": "廁所在哪裡？" },
+        { "ja": "頑張って！", "romaji": "Ganbatte!", "zh": "加油！" },
+        { "ja": "完走しました！", "romaji": "Kansou shimashita!", "zh": "我跑完了！" },
+        { "ja": "荷物預かりはどこですか", "romaji": "Nimotsu azukari wa doko desu ka", "zh": "寄物處在哪裡？" }
+      ]
+    },
+    {
+      "key": "emergency",
+      "label": "緊急狀況",
+      "icon": "shield-alert",
+      "phrases": [
+        { "ja": "助けてください", "romaji": "Tasukete kudasai", "zh": "請幫幫我" },
+        { "ja": "警察を呼んでください", "romaji": "Keisatsu wo yonde kudasai", "zh": "請叫警察" },
+        { "ja": "病院に行きたいです", "romaji": "Byouin ni ikitai desu", "zh": "我想去醫院" },
+        { "ja": "日本語が分かりません", "romaji": "Nihongo ga wakarimasen", "zh": "我不懂日語" },
+        { "ja": "英語を話せる人はいますか", "romaji": "Eigo wo hanaseru hito wa imasu ka", "zh": "有人會說英語嗎？" },
+        { "ja": "パスポートをなくしました", "romaji": "Pasupooto wo nakushimashita", "zh": "我的護照不見了" }
+      ]
+    }
+  ]
+}

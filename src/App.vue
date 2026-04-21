@@ -1,27 +1,39 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { CalendarDays, Info, ClipboardList } from 'lucide-vue-next'
+import { CalendarDays, Map, Languages, Ellipsis } from 'lucide-vue-next'
 import DateNav from './components/DateNav.vue'
 import itinerary from './data/itinerary.json'
 
 const route = useRoute()
 
 const currentTab = computed(() => {
-  if (route.name === 'info') return 'info'
-  if (route.name === 'packing') return 'packing'
+  if (route.name === 'map') return 'map'
+  if (route.name === 'phrases') return 'phrases'
+  if (route.name === 'more') return 'more'
   return 'itinerary'
 })
 
 const showDateNav = computed(() => currentTab.value === 'itinerary')
+const showHeader = computed(() => currentTab.value !== 'map')
 
 const tripTitle = itinerary.trip.title
+
+// Track current day number for syncing between itinerary and map tabs
+const currentDayNum = computed(() => {
+  if (route.name === 'day' && route.params.dayNum) return Number(route.params.dayNum)
+  if (route.name === 'map' && route.query.day) return Number(route.query.day)
+  return 6
+})
+
+const mapLink = computed(() => `/map?day=${currentDayNum.value}`)
+const itineraryLink = computed(() => `/day/${currentDayNum.value}`)
 </script>
 
 <template>
   <div class="app-shell">
     <!-- Header -->
-    <header class="app-header">
+    <header v-if="showHeader" class="app-header">
       <h1 class="app-title font-display">{{ tripTitle }}</h1>
       <p class="app-subtitle">{{ itinerary.trip.startDate.slice(5) }} — {{ itinerary.trip.endDate.slice(5) }}</p>
     </header>
@@ -41,7 +53,7 @@ const tripTitle = itinerary.trip.title
     <!-- Bottom Navigation -->
     <nav class="bottom-nav" role="navigation" aria-label="主導航">
       <router-link
-        to="/day/6"
+        :to="itineraryLink"
         class="nav-item"
         :class="{ active: currentTab === 'itinerary' }"
         aria-label="行程"
@@ -50,22 +62,31 @@ const tripTitle = itinerary.trip.title
         <span class="nav-label">行程</span>
       </router-link>
       <router-link
-        to="/info"
+        :to="mapLink"
         class="nav-item"
-        :class="{ active: currentTab === 'info' }"
-        aria-label="資訊"
+        :class="{ active: currentTab === 'map' }"
+        aria-label="地圖"
       >
-        <Info :size="22" :stroke-width="1.5" />
-        <span class="nav-label">資訊</span>
+        <Map :size="22" :stroke-width="1.5" />
+        <span class="nav-label">地圖</span>
       </router-link>
       <router-link
-        to="/packing"
+        to="/phrases"
         class="nav-item"
-        :class="{ active: currentTab === 'packing' }"
-        aria-label="打包"
+        :class="{ active: currentTab === 'phrases' }"
+        aria-label="日語"
       >
-        <ClipboardList :size="22" :stroke-width="1.5" />
-        <span class="nav-label">打包</span>
+        <Languages :size="22" :stroke-width="1.5" />
+        <span class="nav-label">日語</span>
+      </router-link>
+      <router-link
+        to="/more"
+        class="nav-item"
+        :class="{ active: currentTab === 'more' }"
+        aria-label="更多"
+      >
+        <Ellipsis :size="22" :stroke-width="1.5" />
+        <span class="nav-label">更多</span>
       </router-link>
     </nav>
   </div>
