@@ -1,0 +1,630 @@
+{
+  "trip": {
+    "title": "福岡マラソン 2026",
+    "subtitle": "Fukuoka Marathon Journey",
+    "startDate": "2026-11-06",
+    "endDate": "2026-11-13",
+    "marathonDate": "2026-11-08"
+  },
+  "days": [
+    {
+      "date": "2026-11-06",
+      "dayNum": 6,
+      "label": "抵達福岡",
+      "theme": "travel",
+      "events": [
+        {
+          "time": "12:30",
+          "title": "抵達福岡機場",
+          "category": "transport",
+          "icon": "plane-landing",
+          "location": "福岡空港 國際線",
+          "note": "入境審查約 30-40 分鐘",
+          "mapUrl": "https://maps.google.com/?q=fukuoka+airport"
+        },
+        {
+          "time": "13:30",
+          "title": "搭地鐵前往博多",
+          "category": "transport",
+          "icon": "train-front",
+          "location": "福岡市地下鐵空港線",
+          "note": "機場到博多站約 5 分鐘，260 円"
+        },
+        {
+          "time": "14:00",
+          "title": "飯店 Check-in",
+          "category": "rest",
+          "icon": "door-open",
+          "location": "博多站周邊",
+          "note": "放行李、稍作休息"
+        },
+        {
+          "time": "15:30",
+          "title": "博多站周邊散策",
+          "category": "culture",
+          "icon": "compass",
+          "location": "博多站～キャナルシティ",
+          "note": "熟悉環境、逛逛博多運河城"
+        },
+        {
+          "time": "18:00",
+          "title": "晚餐：博多拉麵",
+          "category": "food",
+          "icon": "utensils",
+          "location": "一蘭拉麵 本店",
+          "note": "天然とんこつ，排隊約 20 分鐘",
+          "mapUrl": "https://maps.google.com/?q=ichiran+ramen+hakata"
+        },
+        {
+          "time": "20:00",
+          "title": "中洲屋台街",
+          "category": "food",
+          "icon": "flame",
+          "location": "中洲那珂川沿い",
+          "note": "福岡名物路邊攤，體驗在地氣氛"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "dayNum": 7,
+      "label": "賽前準備",
+      "theme": "prepare",
+      "events": [
+        {
+          "time": "09:00",
+          "title": "EXPO 選手報到",
+          "category": "marathon",
+          "icon": "ticket-check",
+          "location": "福岡國際會議場",
+          "note": "領取號碼布、計時晶片、大會T恤",
+          "mapUrl": "https://maps.google.com/?q=fukuoka+convention+center"
+        },
+        {
+          "time": "11:00",
+          "title": "跑步裝備最終確認",
+          "category": "marathon",
+          "icon": "clipboard-check",
+          "location": "飯店",
+          "note": "確認鞋子、衣服、能量膠、號碼布別針"
+        },
+        {
+          "time": "12:00",
+          "title": "午餐：碳水補給",
+          "category": "food",
+          "icon": "utensils",
+          "location": "博多うどん",
+          "note": "烏龍麵 carbo-loading，清淡好消化"
+        },
+        {
+          "time": "14:00",
+          "title": "大濠公園輕慢跑",
+          "category": "marathon",
+          "icon": "footprints",
+          "location": "大濠公園",
+          "note": "賽前 shakeout run，3km 輕鬆跑",
+          "mapUrl": "https://maps.google.com/?q=ohori+park+fukuoka"
+        },
+        {
+          "time": "16:00",
+          "title": "福岡塔 & 海濱散步",
+          "category": "culture",
+          "icon": "building",
+          "location": "福岡タワー～百道浜",
+          "note": "看日落，拍照"
+        },
+        {
+          "time": "18:00",
+          "title": "晚餐：早點吃、吃簡單",
+          "category": "food",
+          "icon": "utensils",
+          "location": "飯店附近",
+          "note": "碳水為主，避免生食，20:00 前吃完"
+        },
+        {
+          "time": "21:00",
+          "title": "早睡備戰",
+          "category": "rest",
+          "icon": "moon",
+          "location": "飯店",
+          "note": "準備好明天的裝備放在門口，設 5:30 鬧鐘"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "dayNum": 8,
+      "label": "馬拉松日",
+      "theme": "marathon",
+      "marathon": {
+        "startTime": "08:20",
+        "distance": "42.195km",
+        "targetTime": "目標完賽",
+        "startLocation": "天神中央公園",
+        "course": "天神 → 百道 → 西新 → 今宿 → 折返 → 大濠 → 天神"
+      },
+      "events": [
+        {
+          "time": "05:30",
+          "title": "起床",
+          "category": "rest",
+          "icon": "alarm-clock",
+          "location": "飯店",
+          "note": "吃早餐：飯糰 + 香蕉 + 運動飲料"
+        },
+        {
+          "time": "06:30",
+          "title": "前往會場",
+          "category": "transport",
+          "icon": "train-front",
+          "location": "博多 → 天神",
+          "note": "提早到場，避開人潮"
+        },
+        {
+          "time": "07:00",
+          "title": "會場準備",
+          "category": "marathon",
+          "icon": "map-pin-check-inside",
+          "location": "天神中央公園",
+          "note": "寄物、熱身、上廁所、貼防磨貼"
+        },
+        {
+          "time": "08:20",
+          "title": "起跑！",
+          "category": "marathon",
+          "icon": "flag",
+          "location": "天神中央公園",
+          "note": "穩住配速，前 10K 不要衝太快",
+          "highlight": true
+        },
+        {
+          "time": "09:10",
+          "title": "10K 通過",
+          "category": "marathon",
+          "icon": "milestone",
+          "location": "百道浜",
+          "note": "檢查配速，補水站取水"
+        },
+        {
+          "time": "10:00",
+          "title": "半馬通過",
+          "category": "marathon",
+          "icon": "milestone",
+          "location": "今宿折返點附近",
+          "note": "吃能量膠，保持節奏"
+        },
+        {
+          "time": "10:50",
+          "title": "30K 通過",
+          "category": "marathon",
+          "icon": "milestone",
+          "location": "西新付近",
+          "note": "撞牆期開始，專注呼吸和步頻"
+        },
+        {
+          "time": "11:45",
+          "title": "衝線！",
+          "category": "marathon",
+          "icon": "trophy",
+          "location": "天神中央公園",
+          "note": "完賽！領獎牌、毛巾、完賽食",
+          "highlight": true
+        },
+        {
+          "time": "13:00",
+          "title": "賽後恢復",
+          "category": "rest",
+          "icon": "heart-pulse",
+          "location": "會場周邊",
+          "note": "拉伸、補充電解質、拍完賽照"
+        },
+        {
+          "time": "15:00",
+          "title": "回飯店休息",
+          "category": "rest",
+          "icon": "bath",
+          "location": "飯店",
+          "note": "泡澡、冰敷、換衣服"
+        },
+        {
+          "time": "18:00",
+          "title": "慶功晚餐",
+          "category": "food",
+          "icon": "beer",
+          "location": "博多もつ鍋",
+          "note": "完賽慶祝！牛腸鍋配啤酒",
+          "highlight": true
+        }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "dayNum": 9,
+      "label": "恢復日",
+      "theme": "recovery",
+      "events": [
+        {
+          "time": "09:00",
+          "title": "睡到自然醒",
+          "category": "rest",
+          "icon": "bed-double",
+          "location": "飯店",
+          "note": "不設鬧鐘，身體恢復優先"
+        },
+        {
+          "time": "10:30",
+          "title": "飯店早餐",
+          "category": "food",
+          "icon": "coffee",
+          "location": "飯店",
+          "note": "好好吃一頓"
+        },
+        {
+          "time": "12:00",
+          "title": "櫛田神社",
+          "category": "culture",
+          "icon": "landmark",
+          "location": "櫛田神社",
+          "note": "博多總鎮守，山笠祭典的起點",
+          "mapUrl": "https://maps.google.com/?q=kushida+shrine+fukuoka"
+        },
+        {
+          "time": "13:30",
+          "title": "午餐：水炊き",
+          "category": "food",
+          "icon": "utensils",
+          "location": "博多華味鳥",
+          "note": "膠原蛋白雞肉鍋，恢復身體"
+        },
+        {
+          "time": "15:00",
+          "title": "博多町家故鄉館",
+          "category": "culture",
+          "icon": "scroll-text",
+          "location": "博多町家ふるさと館",
+          "note": "了解博多傳統文化和工藝"
+        },
+        {
+          "time": "17:00",
+          "title": "藥妝店掃貨",
+          "category": "shopping",
+          "icon": "shopping-bag",
+          "location": "ドン・キホーテ 中洲店",
+          "note": "買藥妝、零食伴手禮"
+        },
+        {
+          "time": "19:00",
+          "title": "晚餐：燒鳥",
+          "category": "food",
+          "icon": "flame",
+          "location": "博多串燒",
+          "note": "博多名物雞皮串"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "dayNum": 10,
+      "label": "太宰府一日遊",
+      "theme": "daytrip",
+      "events": [
+        {
+          "time": "08:30",
+          "title": "出發往太宰府",
+          "category": "transport",
+          "icon": "train-front",
+          "location": "西鐵福岡(天神)站",
+          "note": "西鐵電車，天神到太宰府約 40 分鐘"
+        },
+        {
+          "time": "09:30",
+          "title": "太宰府天滿宮",
+          "category": "culture",
+          "icon": "landmark",
+          "location": "太宰府天滿宮",
+          "note": "學問之神，菅原道真公",
+          "mapUrl": "https://maps.google.com/?q=dazaifu+tenmangu"
+        },
+        {
+          "time": "10:30",
+          "title": "表參道散策",
+          "category": "culture",
+          "icon": "store",
+          "location": "太宰府表參道",
+          "note": "名物：梅ヶ枝餅，現烤必吃"
+        },
+        {
+          "time": "11:30",
+          "title": "九州國立博物館",
+          "category": "culture",
+          "icon": "building-2",
+          "location": "九州國立博物館",
+          "note": "建築本身就很壯觀",
+          "mapUrl": "https://maps.google.com/?q=kyushu+national+museum"
+        },
+        {
+          "time": "13:00",
+          "title": "午餐",
+          "category": "food",
+          "icon": "utensils",
+          "location": "太宰府周邊",
+          "note": "嘗試當地定食"
+        },
+        {
+          "time": "14:30",
+          "title": "光明禪寺",
+          "category": "culture",
+          "icon": "trees",
+          "location": "光明禪寺",
+          "note": "秋天楓葉超美的枯山水庭園"
+        },
+        {
+          "time": "16:00",
+          "title": "回福岡",
+          "category": "transport",
+          "icon": "train-front",
+          "location": "西鐵太宰府站"
+        },
+        {
+          "time": "18:00",
+          "title": "晚餐：明太子料理",
+          "category": "food",
+          "icon": "utensils",
+          "location": "博多站附近",
+          "note": "福岡名物辛子明太子"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "dayNum": 11,
+      "label": "柳川 & 門司港",
+      "theme": "daytrip",
+      "events": [
+        {
+          "time": "08:00",
+          "title": "出發往柳川",
+          "category": "transport",
+          "icon": "train-front",
+          "location": "西鐵福岡(天神)站",
+          "note": "特急約 50 分鐘"
+        },
+        {
+          "time": "09:30",
+          "title": "柳川遊船",
+          "category": "culture",
+          "icon": "sailboat",
+          "location": "柳川",
+          "note": "約 70 分鐘的水鄉巡禮，船夫會唱歌",
+          "mapUrl": "https://maps.google.com/?q=yanagawa+river+cruise"
+        },
+        {
+          "time": "11:30",
+          "title": "鰻魚飯",
+          "category": "food",
+          "icon": "utensils",
+          "location": "柳川",
+          "note": "柳川名物！蒸籠鰻魚飯"
+        },
+        {
+          "time": "13:00",
+          "title": "移動至門司港",
+          "category": "transport",
+          "icon": "train-front",
+          "location": "柳川 → 門司港",
+          "note": "約 2 小時車程，可在車上休息"
+        },
+        {
+          "time": "15:00",
+          "title": "門司港懷舊區",
+          "category": "culture",
+          "icon": "building",
+          "location": "門司港レトロ",
+          "note": "大正時代風格的港口建築群",
+          "mapUrl": "https://maps.google.com/?q=mojiko+retro"
+        },
+        {
+          "time": "16:30",
+          "title": "燒咖哩",
+          "category": "food",
+          "icon": "utensils",
+          "location": "門司港",
+          "note": "門司港發祥的焗烤咖哩"
+        },
+        {
+          "time": "18:00",
+          "title": "關門海峽夕陽",
+          "category": "culture",
+          "icon": "sunset",
+          "location": "門司港",
+          "note": "海峽對面就是本州下關"
+        },
+        {
+          "time": "19:30",
+          "title": "回福岡",
+          "category": "transport",
+          "icon": "train-front",
+          "location": "JR 門司港站",
+          "note": "約 1.5 小時回博多"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "dayNum": 12,
+      "label": "市區深度遊",
+      "theme": "explore",
+      "events": [
+        {
+          "time": "09:00",
+          "title": "大濠公園晨散步",
+          "category": "culture",
+          "icon": "trees",
+          "location": "大濠公園",
+          "note": "前天跑過的地方，用散步的速度再感受一次"
+        },
+        {
+          "time": "10:30",
+          "title": "福岡市美術館",
+          "category": "culture",
+          "icon": "palette",
+          "location": "福岡市美術館",
+          "note": "在大濠公園旁邊，順路",
+          "mapUrl": "https://maps.google.com/?q=fukuoka+art+museum"
+        },
+        {
+          "time": "12:00",
+          "title": "午餐：天神地下街",
+          "category": "food",
+          "icon": "utensils",
+          "location": "天神地下街",
+          "note": "很長很好逛的地下商店街"
+        },
+        {
+          "time": "13:30",
+          "title": "天神購物",
+          "category": "shopping",
+          "icon": "shopping-bag",
+          "location": "天神エリア",
+          "note": "岩田屋、大丸、PARCO"
+        },
+        {
+          "time": "16:00",
+          "title": "福岡城跡 & 舞鶴公園",
+          "category": "culture",
+          "icon": "landmark",
+          "location": "舞鶴公園",
+          "note": "登天守台看市區全景"
+        },
+        {
+          "time": "17:30",
+          "title": "最後伴手禮採購",
+          "category": "shopping",
+          "icon": "gift",
+          "location": "博多站 マイング",
+          "note": "博多通りもん、明太子仙貝"
+        },
+        {
+          "time": "19:00",
+          "title": "最後的晚餐：鐵鍋餃子",
+          "category": "food",
+          "icon": "utensils",
+          "location": "博多祇園鉄なべ",
+          "note": "福岡名物一口鐵鍋煎餃"
+        },
+        {
+          "time": "21:00",
+          "title": "收行李",
+          "category": "rest",
+          "icon": "luggage",
+          "location": "飯店",
+          "note": "整理行李、確認明天航班"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "dayNum": 13,
+      "label": "回家",
+      "theme": "travel",
+      "events": [
+        {
+          "time": "08:00",
+          "title": "Check-out",
+          "category": "rest",
+          "icon": "door-open",
+          "location": "飯店",
+          "note": "最後檢查房間，別忘記充電器"
+        },
+        {
+          "time": "09:00",
+          "title": "前往機場",
+          "category": "transport",
+          "icon": "train-front",
+          "location": "博多 → 福岡空港",
+          "note": "地鐵 5 分鐘，預留時間逛免稅"
+        },
+        {
+          "time": "10:00",
+          "title": "機場免稅店",
+          "category": "shopping",
+          "icon": "shopping-bag",
+          "location": "福岡空港 國際線",
+          "note": "最後一次購物機會"
+        },
+        {
+          "time": "12:00",
+          "title": "登機回家",
+          "category": "transport",
+          "icon": "plane",
+          "location": "福岡空港",
+          "note": "帶著完賽獎牌和滿滿回憶回家！",
+          "highlight": true
+        }
+      ]
+    }
+  ],
+  "packingList": {
+    "running": [
+      "跑鞋（已跑過至少 50K 的）",
+      "比賽服裝（上衣 + 短褲）",
+      "運動內衣 / 壓縮褲",
+      "跑步襪（比賽用）",
+      "號碼布別針 ×4",
+      "能量膠 ×5",
+      "跑步腰帶 / 臂帶",
+      "凡士林 / 防磨貼",
+      "GPS 手錶（充滿電）",
+      "帽子 / 遮陽帽",
+      "輕薄風衣（起跑前保暖用）",
+      "拖鞋（賽後穿）"
+    ],
+    "clothing": [
+      "日常衣服 ×5 套",
+      "外套（11 月福岡約 12-18°C）",
+      "睡衣",
+      "內衣褲 ×7",
+      "襪子 ×7"
+    ],
+    "electronics": [
+      "手機 + 充電線",
+      "行動電源",
+      "萬用轉接頭",
+      "耳機",
+      "相機（選配）"
+    ],
+    "documents": [
+      "護照",
+      "電子機票",
+      "飯店預訂確認",
+      "馬拉松報名確認信",
+      "旅遊保險單",
+      "日幣現金"
+    ],
+    "toiletries": [
+      "盥洗用品",
+      "防曬乳",
+      "常備藥品",
+      "OK 繃",
+      "面紙 / 濕紙巾"
+    ]
+  },
+  "info": {
+    "emergency": [
+      { "label": "日本緊急電話", "value": "110（警察）/ 119（消防・救護）" },
+      { "label": "台灣駐福岡辦事處", "value": "092-734-2810" },
+      { "label": "馬拉松大會本部", "value": "092-711-4428" }
+    ],
+    "transport": [
+      { "label": "IC 卡", "value": "SUGOCA / SUICA 全國通用" },
+      { "label": "機場到博多", "value": "地鐵空港線 5 分 / 260 円" },
+      { "label": "一日券", "value": "福岡市地鐵一日券 640 円" }
+    ],
+    "useful": [
+      { "label": "天氣", "value": "11 月平均 12-18°C，偶有雨" },
+      { "label": "匯率", "value": "出發前查最新匯率" },
+      { "label": "Wi-Fi", "value": "建議租 pocket Wi-Fi 或買 eSIM" },
+      { "label": "時差", "value": "日本 +1 小時（台灣時間 +1）" }
+    ]
+  }
+}
