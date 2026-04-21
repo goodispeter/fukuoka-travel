@@ -2,7 +2,6 @@
 import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useItinerary } from '../composables/useItinerary'
-import DateNav from '../components/DateNav.vue'
 import TimelineCard from '../components/TimelineCard.vue'
 import MarathonBanner from '../components/MarathonBanner.vue'
 import CountdownChip from '../components/CountdownChip.vue'
@@ -34,8 +33,6 @@ function getThemeLabel(theme) {
 
 <template>
   <div class="day-view">
-    <DateNav />
-
     <div v-if="day" class="day-content">
       <!-- Day Header -->
       <div class="day-header" :class="{ 'marathon-header': isMarathon }">

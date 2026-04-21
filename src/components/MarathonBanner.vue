@@ -48,7 +48,7 @@ const countdown = computed(() => {
       <div class="banner-header">
         <Trophy :size="28" :stroke-width="1.5" class="banner-trophy" />
         <h2 class="banner-title font-display">Race Day</h2>
-        <p class="banner-subtitle">福岡マラソン 2025</p>
+        <p class="banner-subtitle">福岡マラソン 2026</p>
       </div>
 
       <!-- Countdown -->

@@ -31,12 +31,9 @@ const tripTitle = itinerary.trip.title
 
     <!-- Main Content -->
     <main class="app-main">
-      <router-view v-slot="{ Component, route: r }">
-        <transition
-          :name="r.meta.transition || 'fade'"
-          mode="out-in"
-        >
-          <component :is="Component" :key="r.path" />
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
     </main>
@@ -160,12 +157,13 @@ const tripTitle = itinerary.trip.title
   font-weight: 500;
 }
 
-/* Transitions */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity var(--duration-normal) var(--ease-out);
+/* === Transition === */
+.fade-enter-active {
+  transition: opacity 120ms var(--ease-out);
 }
-
+.fade-leave-active {
+  transition: opacity 80ms var(--ease-in);
+}
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
