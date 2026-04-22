@@ -2,7 +2,8 @@
 import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useItinerary } from '../composables/useItinerary'
-import TimelineCard from '../components/TimelineCard.vue'
+import { groupEventsByLocation } from '../composables/useLocationGroups'
+import LocationGroupCard from '../components/LocationGroupCard.vue'
 import MarathonBanner from '../components/MarathonBanner.vue'
 import CountdownChip from '../components/CountdownChip.vue'
 import WeatherBadge from '../components/WeatherBadge.vue'
@@ -13,6 +14,7 @@ const { getDayByNum, isMarathonDay } = useItinerary()
 const dayNum = computed(() => Number(route.params.dayNum) || 6)
 const day = computed(() => getDayByNum(dayNum.value))
 const isMarathon = computed(() => isMarathonDay(dayNum.value))
+const locationGroups = computed(() => day.value ? groupEventsByLocation(day.value.events) : [])
 
 // Scroll to top on day change
 watch(dayNum, () => {
@@ -55,10 +57,10 @@ function getThemeLabel(theme) {
 
       <!-- Timeline -->
       <div class="timeline">
-        <TimelineCard
-          v-for="(event, idx) in day.events"
-          :key="idx"
-          :event="event"
+        <LocationGroupCard
+          v-for="(group, idx) in locationGroups"
+          :key="group.id"
+          :group="group"
           :index="idx"
           :day-num="day.dayNum"
           :is-marathon-day="isMarathon"

@@ -1,10 +1,11 @@
 <script setup>
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Car, Bus, ArrowLeft, MapPin } from 'lucide-vue-next'
+import { Bus, ArrowLeft, MapPin, ChevronDown, TrainFront, Footprints } from 'lucide-vue-next'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import itinerary from '../data/itinerary.json'
+import { groupEventsByLocation } from '../composables/useLocationGroups'
 
 const route = useRoute()
 const router = useRouter()
@@ -27,21 +28,24 @@ let map = null
 let layerGroup = null
 
 const selectedDayNum = ref(Number(route.query.day) || days[0]?.dayNum || 6)
-const focusedEventIndex = ref(route.query.event != null ? Number(route.query.event) : null)
+const focusedGroupIndex = ref(route.query.group != null ? Number(route.query.group) : null)
+const expandedSegment = ref(null)
 
-const isFocusMode = computed(() => focusedEventIndex.value != null)
+const isFocusMode = computed(() => focusedGroupIndex.value != null)
 
 const currentDay = computed(() =>
   days.find(d => d.dayNum === selectedDayNum.value) || days[0]
 )
 
-// Keep all events with their original index, mark which have coords
-const allEvents = computed(() =>
-  (currentDay.value?.events || []).map((e, i) => ({ ...e, _index: i }))
-)
+// Location groups for the current day
+const locationGroups = computed(() => {
+  const events = currentDay.value?.events || []
+  return groupEventsByLocation(events)
+})
 
-const eventsWithCoords = computed(() =>
-  allEvents.value.filter(e => e.lat != null && e.lng != null)
+// Groups with coordinates
+const groupsWithCoords = computed(() =>
+  locationGroups.value.filter(g => g.lat != null && g.lng != null)
 )
 
 // --- Haversine distance (km) ---
@@ -57,28 +61,27 @@ function haversine(lat1, lng1, lat2, lng2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 }
 
-// Estimate transit times from distance
+// Estimate transit time from distance
 function estimateTransit(distKm) {
-  const driveMin = Math.max(1, Math.round((distKm / 25) * 60))
   const transitMin = Math.max(2, Math.round((distKm / 15) * 60))
-  return {
-    drive: `${driveMin} 分`,
-    transit: `${transitMin} 分`,
-  }
+  return { transit: `${transitMin} 分` }
 }
 
 // --- Focus mode segment data ---
 const focusSegments = computed(() => {
   if (!isFocusMode.value) return []
-  const events = eventsWithCoords.value
-  const idx = events.findIndex(e => e._index === focusedEventIndex.value)
+  const groups = groupsWithCoords.value
+  // Map focusedGroupIndex (from all groups) to groupsWithCoords index
+  const targetGroup = locationGroups.value[focusedGroupIndex.value]
+  if (!targetGroup) return []
+  const idx = groups.findIndex(g => g.id === targetGroup.id)
   if (idx < 0) return []
 
   const segments = []
-  const current = events[idx]
+  const current = groups[idx]
 
   if (idx > 0) {
-    const prev = events[idx - 1]
+    const prev = groups[idx - 1]
     const dist = haversine(prev.lat, prev.lng, current.lat, current.lng)
     const transit = prev.transitToNext || estimateTransit(dist)
     segments.push({
@@ -90,8 +93,8 @@ const focusSegments = computed(() => {
     })
   }
 
-  if (idx < events.length - 1) {
-    const next = events[idx + 1]
+  if (idx < groups.length - 1) {
+    const next = groups[idx + 1]
     const dist = haversine(current.lat, current.lng, next.lat, next.lng)
     const transit = current.transitToNext || estimateTransit(dist)
     segments.push({
@@ -105,6 +108,25 @@ const focusSegments = computed(() => {
 
   return segments
 })
+
+// --- Transit detail helpers ---
+function toggleTransitDetail(i) {
+  expandedSegment.value = expandedSegment.value === i ? null : i
+}
+
+function getTransitDetail(seg) {
+  return seg.transit?.transitDetail || null
+}
+
+function getModeIcon(mode) {
+  const map = { metro: '🚇', bus: '🚌', jr: '🚃', train: '🚃', walk: '🚶' }
+  return map[mode] || '🚌'
+}
+
+function formatDetailSteps(detail) {
+  if (Array.isArray(detail)) return detail
+  return [detail]
+}
 
 // --- Map Initialization ---
 function initMap() {
@@ -134,13 +156,13 @@ function renderMap() {
   if (!map || !layerGroup) return
   layerGroup.clearLayers()
 
-  const events = eventsWithCoords.value
-  if (events.length === 0) return
+  const groups = groupsWithCoords.value
+  if (groups.length === 0) return
 
   if (isFocusMode.value) {
-    renderFocusMode(events)
+    renderFocusMode(groups)
   } else {
-    renderOverviewMode(events)
+    renderOverviewMode(groups)
   }
 }
 
@@ -160,23 +182,27 @@ function makeNumberedIcon(num, color, size = 28) {
   })
 }
 
-function renderOverviewMode(events) {
-  // Numbered markers using divIcon — number = original event order (1-based)
-  events.forEach((event) => {
-    const color = CATEGORY_COLORS[event.category] || '#888'
-    const icon = makeNumberedIcon(event._index + 1, color)
+function renderOverviewMode(groups) {
+  groups.forEach((group, idx) => {
+    const color = CATEGORY_COLORS[group.category] || '#888'
+    const icon = makeNumberedIcon(idx + 1, color)
 
-    const marker = L.marker([event.lat, event.lng], { icon })
+    const marker = L.marker([group.lat, group.lng], { icon })
     marker.bindTooltip(
-      `<strong>${event.time}</strong> ${event.title}`,
+      `<strong>${group.timeRange}</strong> ${group.name}`,
       { direction: 'top', offset: [0, -14] }
     )
+    // Click to focus
+    const allGroupIdx = locationGroups.value.findIndex(g => g.id === group.id)
+    marker.on('click', () => {
+      router.replace({ path: '/map', query: { day: selectedDayNum.value, group: allGroupIdx } })
+    })
     marker.addTo(layerGroup)
   })
 
-  // Dashed polyline connecting in order
-  if (events.length > 1) {
-    const latlngs = events.map(e => [e.lat, e.lng])
+  // Dashed polyline connecting groups in order
+  if (groups.length > 1) {
+    const latlngs = groups.map(g => [g.lat, g.lng])
     L.polyline(latlngs, {
       color: '#888',
       weight: 2,
@@ -185,16 +211,18 @@ function renderOverviewMode(events) {
     }).addTo(layerGroup)
   }
 
-  fitToPoints(events)
+  fitToPoints(groups)
 }
 
-function renderFocusMode(allEvents) {
-  const idx = allEvents.findIndex(e => e._index === focusedEventIndex.value)
+function renderFocusMode(allGroups) {
+  const targetGroup = locationGroups.value[focusedGroupIndex.value]
+  if (!targetGroup) return
+  const idx = allGroups.findIndex(g => g.id === targetGroup.id)
   if (idx < 0) return
 
-  const current = allEvents[idx]
-  const prev = idx > 0 ? allEvents[idx - 1] : null
-  const next = idx < allEvents.length - 1 ? allEvents[idx + 1] : null
+  const current = allGroups[idx]
+  const prev = idx > 0 ? allGroups[idx - 1] : null
+  const next = idx < allGroups.length - 1 ? allGroups[idx + 1] : null
 
   const pointsToShow = [prev, current, next].filter(Boolean)
 
@@ -217,20 +245,20 @@ function renderFocusMode(allEvents) {
     }).addTo(layerGroup)
   }
 
-  // Markers — use numbered icons, current is larger
-  const addFocusMarker = (event, isCurrent) => {
-    const color = CATEGORY_COLORS[event.category] || '#888'
+  // Markers
+  const addFocusMarker = (group, isCurrent) => {
+    const color = CATEGORY_COLORS[group.category] || '#888'
     const size = isCurrent ? 36 : 28
-    const icon = makeNumberedIcon(event._index + 1, color, size)
+    const icon = makeNumberedIcon(allGroups.indexOf(group) + 1, color, size)
 
-    const marker = L.marker([event.lat, event.lng], { icon })
-    marker.bindTooltip(`<strong>${event.time}</strong> ${event.title}`, {
+    const marker = L.marker([group.lat, group.lng], { icon })
+    marker.bindTooltip(`<strong>${group.timeRange}</strong> ${group.name}`, {
       direction: 'top',
       offset: [0, -(size / 2)],
     })
     marker.addTo(layerGroup)
 
-    // Pulsing ring for current event
+    // Pulsing ring for current
     if (isCurrent) {
       const pulseIcon = L.divIcon({
         className: 'map-pulse-ring',
@@ -240,7 +268,7 @@ function renderFocusMode(allEvents) {
         iconSize: [48, 48],
         iconAnchor: [24, 24],
       })
-      L.marker([event.lat, event.lng], { icon: pulseIcon, interactive: false }).addTo(layerGroup)
+      L.marker([group.lat, group.lng], { icon: pulseIcon, interactive: false }).addTo(layerGroup)
     }
   }
 
@@ -251,14 +279,14 @@ function renderFocusMode(allEvents) {
   fitToPoints(pointsToShow)
 }
 
-function fitToPoints(events) {
-  if (!map || events.length === 0) return
+function fitToPoints(points) {
+  if (!map || points.length === 0) return
 
   try {
-    if (events.length === 1) {
-      map.setView([events[0].lat, events[0].lng], 15)
+    if (points.length === 1) {
+      map.setView([points[0].lat, points[0].lng], 15)
     } else {
-      const bounds = L.latLngBounds(events.map(e => [e.lat, e.lng]))
+      const bounds = L.latLngBounds(points.map(p => [p.lat, p.lng]))
       if (bounds.isValid()) {
         map.fitBounds(bounds, { padding: [60, 60] })
       }
@@ -270,12 +298,14 @@ function fitToPoints(events) {
 
 // --- Navigation ---
 function goToOverview() {
+  expandedSegment.value = null
   router.replace({ path: '/map', query: { day: selectedDayNum.value } })
 }
 
 function selectDay(dayNum) {
   selectedDayNum.value = dayNum
-  focusedEventIndex.value = null
+  focusedGroupIndex.value = null
+  expandedSegment.value = null
   router.replace({ path: '/map', query: { day: dayNum } })
 }
 
@@ -284,11 +314,12 @@ watch(
   () => route.query,
   (q) => {
     if (q.day != null) selectedDayNum.value = Number(q.day)
-    focusedEventIndex.value = q.event != null ? Number(q.event) : null
+    focusedGroupIndex.value = q.group != null ? Number(q.group) : null
+    expandedSegment.value = null
   }
 )
 
-watch([selectedDayNum, focusedEventIndex, eventsWithCoords], () => {
+watch([selectedDayNum, focusedGroupIndex, groupsWithCoords], () => {
   nextTick(renderMap)
 })
 
@@ -350,18 +381,15 @@ function getWeekday(dateStr) {
         v-for="(seg, i) in focusSegments"
         :key="i"
         class="segment-card"
+        :class="{ expanded: expandedSegment === i }"
+        @click="toggleTransitDetail(i)"
       >
         <div class="segment-label">
-          {{ seg.from.title }}
+          {{ seg.from.name }}
           <span class="segment-arrow">&rarr;</span>
-          {{ seg.to.title }}
+          {{ seg.to.name }}
         </div>
         <div class="segment-details">
-          <span class="segment-detail">
-            <Car :size="14" :stroke-width="2" />
-            {{ seg.transit.drive }}
-          </span>
-          <span class="segment-divider">|</span>
           <span class="segment-detail">
             <Bus :size="14" :stroke-width="2" />
             {{ seg.transit.transit }}
@@ -371,6 +399,37 @@ function getWeekday(dateStr) {
             <MapPin :size="14" :stroke-width="2" />
             {{ seg.distance }}km
           </span>
+          <ChevronDown
+            v-if="getTransitDetail(seg)"
+            :size="14"
+            :stroke-width="2"
+            class="segment-chevron"
+            :class="{ rotated: expandedSegment === i }"
+          />
+        </div>
+
+        <!-- Expandable transit detail -->
+        <div v-if="expandedSegment === i && getTransitDetail(seg)" class="transit-detail">
+          <div
+            v-for="(step, j) in formatDetailSteps(getTransitDetail(seg))"
+            :key="j"
+            class="transit-step"
+          >
+            <span class="transit-mode-badge">{{ getModeIcon(step.mode) }}</span>
+            <div class="transit-step-content">
+              <div class="transit-step-line">
+                <strong>{{ step.line || '徒歩' }}</strong>
+              </div>
+              <div v-if="step.from && step.to" class="transit-step-route">
+                {{ step.from }} → {{ step.to }}
+                <span v-if="step.stops" class="transit-stops">（{{ step.stops }} 站）</span>
+              </div>
+              <div class="transit-step-meta">
+                <span v-if="step.cost" class="transit-cost">{{ step.cost }}</span>
+                <span v-if="step.note" class="transit-note">{{ step.note }}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -517,6 +576,12 @@ function getWeekday(dateStr) {
   border-radius: var(--radius-md);
   padding: var(--space-sm) var(--space-md);
   box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.segment-card:active {
+  box-shadow: var(--shadow-card-hover);
 }
 
 .segment-label {
@@ -551,6 +616,76 @@ function getWeekday(dateStr) {
 .segment-divider {
   color: var(--text-tertiary);
   font-weight: 300;
+}
+
+.segment-chevron {
+  margin-left: auto;
+  color: var(--text-tertiary);
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.segment-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+/* --- Transit Detail --- */
+.transit-detail {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.transit-step {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.transit-mode-badge {
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.transit-step-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.transit-step-line {
+  font-size: 0.82rem;
+  color: var(--text-primary);
+}
+
+.transit-step-route {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+.transit-stops {
+  color: var(--text-tertiary);
+}
+
+.transit-step-meta {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: 2px;
+  font-size: 0.72rem;
+}
+
+.transit-cost {
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+
+.transit-note {
+  color: var(--text-tertiary);
 }
 
 /* --- Map Container --- */

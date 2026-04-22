@@ -19,12 +19,13 @@
           "category": "transport",
           "icon": "plane-landing",
           "location": "福岡空港 國際線",
+          "locationGroup": "福岡機場",
           "lat": 33.5859,
           "lng": 130.4511,
           "note": "入境審查約 30-40 分鐘",
           "mapUrl": "https://maps.google.com/?q=fukuoka+airport",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "13:30",
@@ -32,11 +33,23 @@
           "category": "transport",
           "icon": "train-front",
           "location": "福岡市地下鐵空港線",
+          "locationGroup": "福岡機場",
           "lat": 33.5859,
           "lng": 130.4511,
           "note": "機場到博多站約 5 分鐘，260 円",
           "distanceToNext": 3.7,
-          "transitToNext": { "drive": "10 分", "transit": "15 分" }
+          "transitToNext": {
+            "transit": "地鐵 5 分",
+            "transitDetail": {
+              "mode": "metro",
+              "line": "空港線",
+              "from": "福岡空港駅",
+              "to": "博多駅",
+              "stops": 2,
+              "cost": "260 円",
+              "note": "2 號月台方向姪浜"
+            }
+          }
         },
         {
           "time": "14:00",
@@ -44,11 +57,12 @@
           "category": "rest",
           "icon": "door-open",
           "location": "博多站周邊",
+          "locationGroup": "博多",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "放行李、稍作休息",
           "distanceToNext": 1.1,
-          "transitToNext": { "drive": "5 分", "transit": "5 分" }
+          "transitToNext": { "transit": "徒歩 15 分" }
         },
         {
           "time": "15:30",
@@ -56,11 +70,12 @@
           "category": "culture",
           "icon": "compass",
           "location": "博多站～キャナルシティ",
+          "locationGroup": "博多",
           "lat": 33.5893,
           "lng": 130.4114,
           "note": "熟悉環境、逛逛博多運河城",
           "distanceToNext": 0.4,
-          "transitToNext": { "drive": "徒歩 5 分", "transit": "徒歩 5 分" }
+          "transitToNext": { "transit": "徒歩 5 分" }
         },
         {
           "time": "18:00",
@@ -68,12 +83,13 @@
           "category": "food",
           "icon": "utensils",
           "location": "一蘭拉麵 本店",
+          "locationGroup": "博多",
           "lat": 33.5912,
           "lng": 130.4087,
           "note": "天然とんこつ，排隊約 20 分鐘",
           "mapUrl": "https://maps.google.com/?q=ichiran+ramen+hakata",
           "distanceToNext": 0.5,
-          "transitToNext": { "drive": "徒歩 5 分", "transit": "徒歩 5 分" }
+          "transitToNext": { "transit": "徒歩 5 分" }
         },
         {
           "time": "20:00",
@@ -81,6 +97,7 @@
           "category": "food",
           "icon": "flame",
           "location": "中洲那珂川沿い",
+          "locationGroup": "博多",
           "lat": 33.5932,
           "lng": 130.4052,
           "note": "福岡名物路邊攤，體驗在地氣氛"
@@ -99,12 +116,23 @@
           "category": "marathon",
           "icon": "ticket-check",
           "location": "福岡國際會議場",
+          "locationGroup": "EXPO 會場",
           "lat": 33.5952,
           "lng": 130.3988,
           "note": "領取號碼布、計時晶片、大會T恤",
           "mapUrl": "https://maps.google.com/?q=fukuoka+convention+center",
           "distanceToNext": 2.7,
-          "transitToNext": { "drive": "8 分", "transit": "12 分" }
+          "transitToNext": {
+            "transit": "巴士 12 分",
+            "transitDetail": {
+              "mode": "bus",
+              "line": "西鐵巴士",
+              "from": "國際會議場前",
+              "to": "博多駅",
+              "stops": 5,
+              "cost": "230 円"
+            }
+          }
         },
         {
           "time": "11:00",
@@ -112,11 +140,12 @@
           "category": "marathon",
           "icon": "clipboard-check",
           "location": "飯店",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "確認鞋子、衣服、能量膠、號碼布別針",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "12:00",
@@ -124,11 +153,22 @@
           "category": "food",
           "icon": "utensils",
           "location": "博多うどん",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "烏龍麵 carbo-loading，清淡好消化",
           "distanceToNext": 5.5,
-          "transitToNext": { "drive": "15 分", "transit": "20 分" }
+          "transitToNext": {
+            "transit": "地鐵 15 分",
+            "transitDetail": {
+              "mode": "metro",
+              "line": "空港線",
+              "from": "博多駅",
+              "to": "大濠公園駅",
+              "stops": 5,
+              "cost": "260 円"
+            }
+          }
         },
         {
           "time": "14:00",
@@ -136,12 +176,23 @@
           "category": "marathon",
           "icon": "footprints",
           "location": "大濠公園",
+          "locationGroup": "大濠公園",
           "lat": 33.5862,
           "lng": 130.3748,
           "note": "賽前 shakeout run，3km 輕鬆跑",
           "mapUrl": "https://maps.google.com/?q=ohori+park+fukuoka",
           "distanceToNext": 3.1,
-          "transitToNext": { "drive": "10 分", "transit": "15 分" }
+          "transitToNext": {
+            "transit": "巴士 15 分",
+            "transitDetail": {
+              "mode": "bus",
+              "line": "西鐵巴士 302",
+              "from": "大濠公園",
+              "to": "福岡タワー南口",
+              "stops": 4,
+              "cost": "230 円"
+            }
+          }
         },
         {
           "time": "16:00",
@@ -149,11 +200,22 @@
           "category": "culture",
           "icon": "building",
           "location": "福岡タワー～百道浜",
+          "locationGroup": "百道浜",
           "lat": 33.5953,
           "lng": 130.3513,
           "note": "看日落，拍照",
           "distanceToNext": 8.3,
-          "transitToNext": { "drive": "20 分", "transit": "30 分" }
+          "transitToNext": {
+            "transit": "巴士 30 分",
+            "transitDetail": {
+              "mode": "bus",
+              "line": "西鐵巴士 306",
+              "from": "福岡タワー南口",
+              "to": "博多駅",
+              "stops": 12,
+              "cost": "230 円"
+            }
+          }
         },
         {
           "time": "18:00",
@@ -161,6 +223,7 @@
           "category": "food",
           "icon": "utensils",
           "location": "飯店附近",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "碳水為主，避免生食，20:00 前吃完"
@@ -171,6 +234,7 @@
           "category": "rest",
           "icon": "moon",
           "location": "飯店",
+          "locationGroup": "飯店",
           "note": "準備好明天的裝備放在門口，設 5:30 鬧鐘"
         }
       ]
@@ -194,11 +258,12 @@
           "category": "rest",
           "icon": "alarm-clock",
           "location": "飯店",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "吃早餐：飯糰 + 香蕉 + 運動飲料",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "06:30",
@@ -206,11 +271,23 @@
           "category": "transport",
           "icon": "train-front",
           "location": "博多 → 天神",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "提早到場，避開人潮",
           "distanceToNext": 2.6,
-          "transitToNext": { "drive": "8 分", "transit": "10 分" }
+          "transitToNext": {
+            "transit": "地鐵 6 分",
+            "transitDetail": {
+              "mode": "metro",
+              "line": "空港線",
+              "from": "博多駅",
+              "to": "天神駅",
+              "stops": 3,
+              "cost": "210 円",
+              "note": "出站後步行 5 分鐘到天神中央公園"
+            }
+          }
         },
         {
           "time": "07:00",
@@ -218,11 +295,12 @@
           "category": "marathon",
           "icon": "map-pin-check-inside",
           "location": "天神中央公園",
+          "locationGroup": "天神中央公園",
           "lat": 33.5897,
           "lng": 130.3990,
           "note": "寄物、熱身、上廁所、貼防磨貼",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "08:20",
@@ -230,12 +308,13 @@
           "category": "marathon",
           "icon": "flag",
           "location": "天神中央公園",
+          "locationGroup": "天神中央公園",
           "lat": 33.5897,
           "lng": 130.3990,
           "note": "穩住配速，前 10K 不要衝太快",
           "highlight": true,
           "distanceToNext": 5.8,
-          "transitToNext": { "drive": "15 分", "transit": "20 分" }
+          "transitToNext": { "transit": "跑步中" }
         },
         {
           "time": "09:10",
@@ -243,11 +322,12 @@
           "category": "marathon",
           "icon": "milestone",
           "location": "百道浜",
+          "locationGroup": "百道浜",
           "lat": 33.5953,
           "lng": 130.3513,
           "note": "檢查配速，補水站取水",
           "distanceToNext": 6.1,
-          "transitToNext": { "drive": "15 分", "transit": "25 分" }
+          "transitToNext": { "transit": "跑步中" }
         },
         {
           "time": "10:00",
@@ -255,11 +335,12 @@
           "category": "marathon",
           "icon": "milestone",
           "location": "今宿折返點附近",
+          "locationGroup": "今宿",
           "lat": 33.5785,
           "lng": 130.3048,
           "note": "吃能量膠，保持節奏",
           "distanceToNext": 6.5,
-          "transitToNext": { "drive": "15 分", "transit": "25 分" }
+          "transitToNext": { "transit": "跑步中" }
         },
         {
           "time": "10:50",
@@ -267,11 +348,12 @@
           "category": "marathon",
           "icon": "milestone",
           "location": "西新付近",
+          "locationGroup": "西新",
           "lat": 33.5862,
           "lng": 130.3580,
           "note": "撞牆期開始，專注呼吸和步頻",
           "distanceToNext": 4.9,
-          "transitToNext": { "drive": "12 分", "transit": "20 分" }
+          "transitToNext": { "transit": "跑步中" }
         },
         {
           "time": "11:45",
@@ -279,12 +361,13 @@
           "category": "marathon",
           "icon": "trophy",
           "location": "天神中央公園",
+          "locationGroup": "天神中央公園",
           "lat": 33.5897,
           "lng": 130.3990,
           "note": "完賽！領獎牌、毛巾、完賽食",
           "highlight": true,
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "13:00",
@@ -292,11 +375,22 @@
           "category": "rest",
           "icon": "heart-pulse",
           "location": "會場周邊",
+          "locationGroup": "天神中央公園",
           "lat": 33.5897,
           "lng": 130.3990,
           "note": "拉伸、補充電解質、拍完賽照",
           "distanceToNext": 2.6,
-          "transitToNext": { "drive": "8 分", "transit": "10 分" }
+          "transitToNext": {
+            "transit": "地鐵 6 分",
+            "transitDetail": {
+              "mode": "metro",
+              "line": "空港線",
+              "from": "天神駅",
+              "to": "博多駅",
+              "stops": 3,
+              "cost": "210 円"
+            }
+          }
         },
         {
           "time": "15:00",
@@ -304,11 +398,12 @@
           "category": "rest",
           "icon": "bath",
           "location": "飯店",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "泡澡、冰敷、換衣服",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "18:00",
@@ -316,6 +411,7 @@
           "category": "food",
           "icon": "beer",
           "location": "博多もつ鍋",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "完賽慶祝！牛腸鍋配啤酒",
@@ -335,11 +431,12 @@
           "category": "rest",
           "icon": "bed-double",
           "location": "飯店",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "不設鬧鐘，身體恢復優先",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "10:30",
@@ -347,11 +444,12 @@
           "category": "food",
           "icon": "coffee",
           "location": "飯店",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "好好吃一頓",
           "distanceToNext": 1.2,
-          "transitToNext": { "drive": "5 分", "transit": "5 分" }
+          "transitToNext": { "transit": "徒歩 15 分" }
         },
         {
           "time": "12:00",
@@ -359,12 +457,13 @@
           "category": "culture",
           "icon": "landmark",
           "location": "櫛田神社",
+          "locationGroup": "博多舊市街",
           "lat": 33.5902,
           "lng": 130.4107,
           "note": "博多總鎮守，山笠祭典的起點",
           "mapUrl": "https://maps.google.com/?q=kushida+shrine+fukuoka",
           "distanceToNext": 1.2,
-          "transitToNext": { "drive": "5 分", "transit": "5 分" }
+          "transitToNext": { "transit": "徒歩 5 分" }
         },
         {
           "time": "13:30",
@@ -372,11 +471,12 @@
           "category": "food",
           "icon": "utensils",
           "location": "博多華味鳥",
+          "locationGroup": "博多舊市街",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "膠原蛋白雞肉鍋，恢復身體",
           "distanceToNext": 1.2,
-          "transitToNext": { "drive": "5 分", "transit": "5 分" }
+          "transitToNext": { "transit": "徒歩 5 分" }
         },
         {
           "time": "15:00",
@@ -384,11 +484,12 @@
           "category": "culture",
           "icon": "scroll-text",
           "location": "博多町家ふるさと館",
+          "locationGroup": "博多舊市街",
           "lat": 33.5910,
           "lng": 130.4117,
           "note": "了解博多傳統文化和工藝",
           "distanceToNext": 1.0,
-          "transitToNext": { "drive": "5 分", "transit": "5 分" }
+          "transitToNext": { "transit": "徒歩 10 分" }
         },
         {
           "time": "17:00",
@@ -396,11 +497,12 @@
           "category": "shopping",
           "icon": "shopping-bag",
           "location": "ドン・キホーテ 中洲店",
+          "locationGroup": "中洲",
           "lat": 33.5935,
           "lng": 130.4048,
           "note": "買藥妝、零食伴手禮",
           "distanceToNext": 2.1,
-          "transitToNext": { "drive": "8 分", "transit": "10 分" }
+          "transitToNext": { "transit": "徒歩 15 分" }
         },
         {
           "time": "19:00",
@@ -408,6 +510,7 @@
           "category": "food",
           "icon": "flame",
           "location": "博多串燒",
+          "locationGroup": "博多站周邊",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "博多名物雞皮串"
@@ -426,11 +529,23 @@
           "category": "transport",
           "icon": "train-front",
           "location": "西鐵福岡(天神)站",
+          "locationGroup": "天神站",
           "lat": 33.5897,
           "lng": 130.3990,
           "note": "西鐵電車，天神到太宰府約 40 分鐘",
           "distanceToNext": 19.0,
-          "transitToNext": { "drive": "40 分", "transit": "40 分" }
+          "transitToNext": {
+            "transit": "西鐵電車 40 分",
+            "transitDetail": {
+              "mode": "train",
+              "line": "西鐵天神大牟田線 → 太宰府線",
+              "from": "西鐵福岡(天神)駅",
+              "to": "太宰府駅",
+              "stops": 8,
+              "cost": "410 円",
+              "note": "在二日市站轉太宰府線"
+            }
+          }
         },
         {
           "time": "09:30",
@@ -438,12 +553,13 @@
           "category": "culture",
           "icon": "landmark",
           "location": "太宰府天滿宮",
+          "locationGroup": "太宰府",
           "lat": 33.5210,
           "lng": 130.5350,
           "note": "學問之神，菅原道真公",
           "mapUrl": "https://maps.google.com/?q=dazaifu+tenmangu",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "10:30",
@@ -451,11 +567,12 @@
           "category": "culture",
           "icon": "store",
           "location": "太宰府表參道",
+          "locationGroup": "太宰府",
           "lat": 33.5210,
           "lng": 130.5350,
           "note": "名物：梅ヶ枝餅，現烤必吃",
           "distanceToNext": 0.6,
-          "transitToNext": { "drive": "徒歩 8 分", "transit": "徒歩 8 分" }
+          "transitToNext": { "transit": "徒歩 8 分" }
         },
         {
           "time": "11:30",
@@ -463,12 +580,13 @@
           "category": "culture",
           "icon": "building-2",
           "location": "九州國立博物館",
+          "locationGroup": "太宰府",
           "lat": 33.5178,
           "lng": 130.5378,
           "note": "建築本身就很壯觀",
           "mapUrl": "https://maps.google.com/?q=kyushu+national+museum",
           "distanceToNext": 0.6,
-          "transitToNext": { "drive": "徒歩 8 分", "transit": "徒歩 8 分" }
+          "transitToNext": { "transit": "徒歩 8 分" }
         },
         {
           "time": "13:00",
@@ -476,11 +594,12 @@
           "category": "food",
           "icon": "utensils",
           "location": "太宰府周邊",
+          "locationGroup": "太宰府",
           "lat": 33.5210,
           "lng": 130.5350,
           "note": "嘗試當地定食",
           "distanceToNext": 0.3,
-          "transitToNext": { "drive": "徒歩 3 分", "transit": "徒歩 3 分" }
+          "transitToNext": { "transit": "徒歩 3 分" }
         },
         {
           "time": "14:30",
@@ -488,11 +607,12 @@
           "category": "culture",
           "icon": "trees",
           "location": "光明禪寺",
+          "locationGroup": "太宰府",
           "lat": 33.5222,
           "lng": 130.5333,
           "note": "秋天楓葉超美的枯山水庭園",
           "distanceToNext": 0.3,
-          "transitToNext": { "drive": "徒歩 3 分", "transit": "徒歩 3 分" }
+          "transitToNext": { "transit": "徒歩 3 分" }
         },
         {
           "time": "16:00",
@@ -500,10 +620,22 @@
           "category": "transport",
           "icon": "train-front",
           "location": "西鐵太宰府站",
+          "locationGroup": "太宰府",
           "lat": 33.5210,
           "lng": 130.5350,
           "distanceToNext": 19.0,
-          "transitToNext": { "drive": "40 分", "transit": "40 分" }
+          "transitToNext": {
+            "transit": "西鐵電車 40 分",
+            "transitDetail": {
+              "mode": "train",
+              "line": "西鐵太宰府線 → 天神大牟田線",
+              "from": "太宰府駅",
+              "to": "西鐵福岡(天神)駅",
+              "stops": 8,
+              "cost": "410 円",
+              "note": "在二日市站轉乘"
+            }
+          }
         },
         {
           "time": "18:00",
@@ -511,6 +643,7 @@
           "category": "food",
           "icon": "utensils",
           "location": "博多站附近",
+          "locationGroup": "博多站",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "福岡名物辛子明太子"
@@ -529,11 +662,23 @@
           "category": "transport",
           "icon": "train-front",
           "location": "西鐵福岡(天神)站",
+          "locationGroup": "天神站",
           "lat": 33.5897,
           "lng": 130.3990,
           "note": "特急約 50 分鐘",
           "distanceToNext": 61.6,
-          "transitToNext": { "drive": "1 時間", "transit": "50 分" }
+          "transitToNext": {
+            "transit": "西鐵特急 50 分",
+            "transitDetail": {
+              "mode": "train",
+              "line": "西鐵天神大牟田線 特急",
+              "from": "西鐵福岡(天神)駅",
+              "to": "西鐵柳川駅",
+              "stops": 4,
+              "cost": "850 円",
+              "note": "不需另購特急券"
+            }
+          }
         },
         {
           "time": "09:30",
@@ -541,12 +686,13 @@
           "category": "culture",
           "icon": "sailboat",
           "location": "柳川",
+          "locationGroup": "柳川",
           "lat": 33.1628,
           "lng": 130.4057,
           "note": "約 70 分鐘的水鄉巡禮，船夫會唱歌",
           "mapUrl": "https://maps.google.com/?q=yanagawa+river+cruise",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "11:30",
@@ -554,11 +700,12 @@
           "category": "food",
           "icon": "utensils",
           "location": "柳川",
+          "locationGroup": "柳川",
           "lat": 33.1628,
           "lng": 130.4057,
           "note": "柳川名物！蒸籠鰻魚飯",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "13:00",
@@ -566,11 +713,31 @@
           "category": "transport",
           "icon": "train-front",
           "location": "柳川 → 門司港",
+          "locationGroup": "柳川",
           "lat": 33.1628,
           "lng": 130.4057,
           "note": "約 2 小時車程，可在車上休息",
           "distanceToNext": 131.0,
-          "transitToNext": { "drive": "1 時間 30 分", "transit": "2 時間" }
+          "transitToNext": {
+            "transit": "電車 2 時間",
+            "transitDetail": [
+              {
+                "mode": "train",
+                "line": "西鐵天神大牟田線",
+                "from": "西鐵柳川駅",
+                "to": "西鐵久留米駅",
+                "cost": "330 円"
+              },
+              {
+                "mode": "jr",
+                "line": "JR 鹿兒島本線 → 日豐本線",
+                "from": "久留米駅",
+                "to": "門司港駅",
+                "cost": "2,170 円",
+                "note": "在小倉站轉乘日豐本線"
+              }
+            ]
+          }
         },
         {
           "time": "15:00",
@@ -578,12 +745,13 @@
           "category": "culture",
           "icon": "building",
           "location": "門司港レトロ",
+          "locationGroup": "門司港",
           "lat": 33.9461,
           "lng": 130.9611,
           "note": "大正時代風格的港口建築群",
           "mapUrl": "https://maps.google.com/?q=mojiko+retro",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "16:30",
@@ -591,11 +759,12 @@
           "category": "food",
           "icon": "utensils",
           "location": "門司港",
+          "locationGroup": "門司港",
           "lat": 33.9461,
           "lng": 130.9611,
           "note": "門司港發祥的焗烤咖哩",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "18:00",
@@ -603,11 +772,12 @@
           "category": "culture",
           "icon": "sunset",
           "location": "門司港",
+          "locationGroup": "門司港",
           "lat": 33.9461,
           "lng": 130.9611,
           "note": "海峽對面就是本州下關",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 5 分" }
         },
         {
           "time": "19:30",
@@ -615,9 +785,22 @@
           "category": "transport",
           "icon": "train-front",
           "location": "JR 門司港站",
+          "locationGroup": "門司港",
           "lat": 33.9461,
           "lng": 130.9611,
-          "note": "約 1.5 小時回博多"
+          "note": "約 1.5 小時回博多",
+          "transitToNext": {
+            "transit": "JR 1 時間 30 分",
+            "transitDetail": {
+              "mode": "jr",
+              "line": "JR 鹿兒島本線",
+              "from": "門司港駅",
+              "to": "博多駅",
+              "stops": 12,
+              "cost": "1,500 円",
+              "note": "快速列車約 1.5 小時直達"
+            }
+          }
         }
       ]
     },
@@ -633,11 +816,12 @@
           "category": "culture",
           "icon": "trees",
           "location": "大濠公園",
+          "locationGroup": "大濠公園",
           "lat": 33.5862,
           "lng": 130.3748,
           "note": "前天跑過的地方，用散步的速度再感受一次",
           "distanceToNext": 0.4,
-          "transitToNext": { "drive": "徒歩 5 分", "transit": "徒歩 5 分" }
+          "transitToNext": { "transit": "徒歩 5 分" }
         },
         {
           "time": "10:30",
@@ -645,12 +829,23 @@
           "category": "culture",
           "icon": "palette",
           "location": "福岡市美術館",
+          "locationGroup": "大濠公園",
           "lat": 33.5858,
           "lng": 130.3777,
           "note": "在大濠公園旁邊，順路",
           "mapUrl": "https://maps.google.com/?q=fukuoka+art+museum",
           "distanceToNext": 2.6,
-          "transitToNext": { "drive": "8 分", "transit": "10 分" }
+          "transitToNext": {
+            "transit": "地鐵 5 分",
+            "transitDetail": {
+              "mode": "metro",
+              "line": "空港線",
+              "from": "大濠公園駅",
+              "to": "天神駅",
+              "stops": 1,
+              "cost": "210 円"
+            }
+          }
         },
         {
           "time": "12:00",
@@ -658,11 +853,12 @@
           "category": "food",
           "icon": "utensils",
           "location": "天神地下街",
+          "locationGroup": "天神",
           "lat": 33.5897,
           "lng": 130.3990,
           "note": "很長很好逛的地下商店街",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "13:30",
@@ -670,11 +866,12 @@
           "category": "shopping",
           "icon": "shopping-bag",
           "location": "天神エリア",
+          "locationGroup": "天神",
           "lat": 33.5897,
           "lng": 130.3990,
           "note": "岩田屋、大丸、PARCO",
           "distanceToNext": 2.1,
-          "transitToNext": { "drive": "8 分", "transit": "10 分" }
+          "transitToNext": { "transit": "徒歩 20 分" }
         },
         {
           "time": "16:00",
@@ -682,11 +879,23 @@
           "category": "culture",
           "icon": "landmark",
           "location": "舞鶴公園",
+          "locationGroup": "舞鶴公園",
           "lat": 33.5851,
           "lng": 130.3826,
           "note": "登天守台看市區全景",
           "distanceToNext": 4.6,
-          "transitToNext": { "drive": "12 分", "transit": "15 分" }
+          "transitToNext": {
+            "transit": "地鐵 10 分",
+            "transitDetail": {
+              "mode": "metro",
+              "line": "空港線",
+              "from": "赤坂駅",
+              "to": "博多駅",
+              "stops": 4,
+              "cost": "260 円",
+              "note": "從舞鶴公園步行 5 分鐘到赤坂駅"
+            }
+          }
         },
         {
           "time": "17:30",
@@ -694,11 +903,12 @@
           "category": "shopping",
           "icon": "gift",
           "location": "博多站 マイング",
+          "locationGroup": "博多站",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "博多通りもん、明太子仙貝",
           "distanceToNext": 1.0,
-          "transitToNext": { "drive": "5 分", "transit": "5 分" }
+          "transitToNext": { "transit": "徒歩 10 分" }
         },
         {
           "time": "19:00",
@@ -706,6 +916,7 @@
           "category": "food",
           "icon": "utensils",
           "location": "博多祇園鉄なべ",
+          "locationGroup": "博多站",
           "lat": 33.5919,
           "lng": 130.4130,
           "note": "福岡名物一口鐵鍋煎餃"
@@ -716,6 +927,7 @@
           "category": "rest",
           "icon": "luggage",
           "location": "飯店",
+          "locationGroup": "飯店",
           "note": "整理行李、確認明天航班"
         }
       ]
@@ -732,11 +944,12 @@
           "category": "rest",
           "icon": "door-open",
           "location": "飯店",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "最後檢查房間，別忘記充電器",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "09:00",
@@ -744,11 +957,22 @@
           "category": "transport",
           "icon": "train-front",
           "location": "博多 → 福岡空港",
+          "locationGroup": "飯店",
           "lat": 33.5898,
           "lng": 130.4207,
           "note": "地鐵 5 分鐘，預留時間逛免稅",
           "distanceToNext": 3.7,
-          "transitToNext": { "drive": "10 分", "transit": "10 分" }
+          "transitToNext": {
+            "transit": "地鐵 5 分",
+            "transitDetail": {
+              "mode": "metro",
+              "line": "空港線",
+              "from": "博多駅",
+              "to": "福岡空港駅",
+              "stops": 2,
+              "cost": "260 円"
+            }
+          }
         },
         {
           "time": "10:00",
@@ -756,11 +980,12 @@
           "category": "shopping",
           "icon": "shopping-bag",
           "location": "福岡空港 國際線",
+          "locationGroup": "福岡機場",
           "lat": 33.5859,
           "lng": 130.4511,
           "note": "最後一次購物機會",
           "distanceToNext": 0,
-          "transitToNext": { "drive": "徒歩 1 分", "transit": "徒歩 1 分" }
+          "transitToNext": { "transit": "徒歩 1 分" }
         },
         {
           "time": "12:00",
@@ -768,6 +993,7 @@
           "category": "transport",
           "icon": "plane",
           "location": "福岡空港",
+          "locationGroup": "福岡機場",
           "lat": 33.5859,
           "lng": 130.4511,
           "note": "帶著完賽獎牌和滿滿回憶回家！",
