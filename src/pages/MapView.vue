@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Bus, ArrowLeft, MapPin, ChevronDown, TrainFront, Footprints } from 'lucide-vue-next'
+import { Bus, ArrowLeft, MapPin, ChevronDown, ChevronLeft, ChevronRight, TrainFront, Footprints } from 'lucide-vue-next'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import itinerary from '../data/itinerary.json'
@@ -224,38 +224,72 @@ function renderFocusMode(allGroups) {
   const prev = idx > 0 ? allGroups[idx - 1] : null
   const next = idx < allGroups.length - 1 ? allGroups[idx + 1] : null
 
-  const pointsToShow = [prev, current, next].filter(Boolean)
+  // Draw full route polyline (dimmed)
+  if (allGroups.length > 1) {
+    const latlngs = allGroups.map(g => [g.lat, g.lng])
+    L.polyline(latlngs, {
+      color: '#bbb',
+      weight: 1.5,
+      dashArray: '4,4',
+      opacity: 0.4,
+    }).addTo(layerGroup)
+  }
 
-  // Draw segment lines
+  // Highlight segment lines for prev→current→next
   if (prev) {
     L.polyline([[prev.lat, prev.lng], [current.lat, current.lng]], {
       color: '#888',
-      weight: 2,
+      weight: 2.5,
       dashArray: '6,4',
-      opacity: 0.6,
+      opacity: 0.7,
     }).addTo(layerGroup)
   }
-
   if (next) {
     L.polyline([[current.lat, current.lng], [next.lat, next.lng]], {
       color: '#888',
-      weight: 2,
+      weight: 2.5,
       dashArray: '6,4',
-      opacity: 0.6,
+      opacity: 0.7,
     }).addTo(layerGroup)
   }
 
-  // Markers
-  const addFocusMarker = (group, isCurrent) => {
+  // All markers — clickable, with different visual weight
+  allGroups.forEach((group, gIdx) => {
+    const isCurrent = group.id === current.id
+    const isAdjacent = group.id === prev?.id || group.id === next?.id
     const color = CATEGORY_COLORS[group.category] || '#888'
-    const size = isCurrent ? 36 : 28
-    const icon = makeNumberedIcon(allGroups.indexOf(group) + 1, color, size)
+    const size = isCurrent ? 36 : isAdjacent ? 28 : 22
+    const opacity = isCurrent ? 1 : isAdjacent ? 0.85 : 0.5
+
+    const icon = L.divIcon({
+      className: 'map-numbered-marker',
+      html: `<div style="
+        width: ${size}px; height: ${size}px; border-radius: 50%;
+        background: ${color}; border: 2px solid #fff;
+        color: #fff; font-size: ${size > 28 ? 14 : size > 22 ? 12 : 10}px; font-weight: 600;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        font-family: system-ui, sans-serif;
+        opacity: ${opacity};
+      ">${gIdx + 1}</div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+    })
 
     const marker = L.marker([group.lat, group.lng], { icon })
     marker.bindTooltip(`<strong>${group.timeRange}</strong> ${group.name}`, {
       direction: 'top',
       offset: [0, -(size / 2)],
     })
+
+    // All non-current markers are clickable — navigate directly
+    if (!isCurrent) {
+      const allGroupIdx = locationGroups.value.findIndex(g => g.id === group.id)
+      marker.on('click', () => {
+        router.replace({ path: '/map', query: { day: selectedDayNum.value, group: allGroupIdx } })
+      })
+    }
+
     marker.addTo(layerGroup)
 
     // Pulsing ring for current
@@ -270,13 +304,13 @@ function renderFocusMode(allGroups) {
       })
       L.marker([group.lat, group.lng], { icon: pulseIcon, interactive: false }).addTo(layerGroup)
     }
-  }
+  })
 
-  if (prev) addFocusMarker(prev, false)
-  addFocusMarker(current, true)
-  if (next) addFocusMarker(next, false)
-
-  fitToPoints(pointsToShow)
+  // Center map on the focused point
+  map.setView([current.lat, current.lng], map.getZoom() < 14 ? 15 : map.getZoom(), {
+    animate: true,
+    duration: 0.3,
+  })
 }
 
 function fitToPoints(points) {
@@ -301,6 +335,62 @@ function goToOverview() {
   expandedSegment.value = null
   router.replace({ path: '/map', query: { day: selectedDayNum.value } })
 }
+
+function goToPrevGroup() {
+  const groups = groupsWithCoords.value
+  const targetGroup = locationGroups.value[focusedGroupIndex.value]
+  if (!targetGroup) return
+  const idx = groups.findIndex(g => g.id === targetGroup.id)
+  if (idx <= 0) return
+  const prevGroup = groups[idx - 1]
+  const allGroupIdx = locationGroups.value.findIndex(g => g.id === prevGroup.id)
+  router.replace({ path: '/map', query: { day: selectedDayNum.value, group: allGroupIdx } })
+}
+
+function goToNextGroup() {
+  const groups = groupsWithCoords.value
+  const targetGroup = locationGroups.value[focusedGroupIndex.value]
+  if (!targetGroup) return
+  const idx = groups.findIndex(g => g.id === targetGroup.id)
+  if (idx < 0 || idx >= groups.length - 1) return
+  const nextGroup = groups[idx + 1]
+  const allGroupIdx = locationGroups.value.findIndex(g => g.id === nextGroup.id)
+  router.replace({ path: '/map', query: { day: selectedDayNum.value, group: allGroupIdx } })
+}
+
+const hasPrevGroup = computed(() => {
+  if (!isFocusMode.value) return false
+  const groups = groupsWithCoords.value
+  const targetGroup = locationGroups.value[focusedGroupIndex.value]
+  if (!targetGroup) return false
+  const idx = groups.findIndex(g => g.id === targetGroup.id)
+  return idx > 0
+})
+
+const hasNextGroup = computed(() => {
+  if (!isFocusMode.value) return false
+  const groups = groupsWithCoords.value
+  const targetGroup = locationGroups.value[focusedGroupIndex.value]
+  if (!targetGroup) return false
+  const idx = groups.findIndex(g => g.id === targetGroup.id)
+  return idx >= 0 && idx < groups.length - 1
+})
+
+const focusedGroupName = computed(() => {
+  if (!isFocusMode.value) return ''
+  const targetGroup = locationGroups.value[focusedGroupIndex.value]
+  return targetGroup?.name || ''
+})
+
+const focusedGroupCounter = computed(() => {
+  if (!isFocusMode.value) return ''
+  const groups = groupsWithCoords.value
+  const targetGroup = locationGroups.value[focusedGroupIndex.value]
+  if (!targetGroup) return ''
+  const idx = groups.findIndex(g => g.id === targetGroup.id)
+  if (idx < 0) return ''
+  return `${idx + 1} / ${groups.length}`
+})
 
 function selectDay(dayNum) {
   selectedDayNum.value = dayNum
@@ -369,11 +459,24 @@ function getWeekday(dateStr) {
       </button>
     </div>
 
-    <!-- Back button (focus mode) -->
-    <button v-if="isFocusMode" class="back-btn" @click="goToOverview">
-      <ArrowLeft :size="18" :stroke-width="2" />
-      <span>Overview</span>
-    </button>
+    <!-- Focus mode top bar -->
+    <div v-if="isFocusMode" class="focus-top-bar">
+      <button class="back-btn" @click="goToOverview">
+        <ArrowLeft :size="18" :stroke-width="2" />
+      </button>
+      <div class="focus-nav-center">
+        <span class="focus-nav-name">{{ focusedGroupName }}</span>
+        <span class="focus-nav-counter">{{ focusedGroupCounter }}</span>
+      </div>
+      <div class="focus-nav-arrows">
+        <button class="focus-nav-btn" :disabled="!hasPrevGroup" @click="goToPrevGroup">
+          <ChevronLeft :size="20" :stroke-width="2.5" />
+        </button>
+        <button class="focus-nav-btn" :disabled="!hasNextGroup" @click="goToNextGroup">
+          <ChevronRight :size="20" :stroke-width="2.5" />
+        </button>
+      </div>
+    </div>
 
     <!-- Focus mode info cards -->
     <div v-if="isFocusMode && focusSegments.length > 0" class="segment-cards">
@@ -529,25 +632,36 @@ function getWeekday(dateStr) {
   color: var(--accent-primary);
 }
 
-/* --- Back Button --- */
-.back-btn {
+/* --- Focus Top Bar --- */
+.focus-top-bar {
   position: absolute;
-  top: var(--space-sm);
-  left: var(--space-sm);
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-md);
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-sm);
+  background: var(--surface-base);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* --- Back Button --- */
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
   background: var(--surface-card);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-full);
+  border-radius: 50%;
   box-shadow: var(--shadow-card);
   color: var(--text-primary);
-  font-size: 0.85rem;
-  font-weight: 500;
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
 }
 
 .back-btn:hover {
@@ -556,6 +670,67 @@ function getWeekday(dateStr) {
 
 .back-btn:active {
   transform: scale(0.95);
+}
+
+/* --- Focus Nav Center (name + counter) --- */
+.focus-nav-center {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.focus-nav-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: center;
+}
+
+.focus-nav-counter {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Focus Nav Arrows (prev/next) --- */
+.focus-nav-arrows {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.focus-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.focus-nav-btn:active:not(:disabled) {
+  transform: scale(0.9);
+  background: var(--surface-base);
+}
+
+.focus-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* --- Segment Info Cards --- */
