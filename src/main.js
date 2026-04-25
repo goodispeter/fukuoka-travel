@@ -1,7 +1,10 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
+import { initTheme } from './composables/useTheme'
 import './styles/global.css'
+
+initTheme()
 
 const routes = [
   { path: '/', redirect: '/day/6' },

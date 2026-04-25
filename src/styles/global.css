@@ -72,34 +72,36 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface-base: #1A1814;
-    --surface-card: #252220;
-    --surface-elevated: #2E2B28;
-    --text-primary: #F0EDE8;
-    --text-secondary: #9E9890;
-    --text-tertiary: #6B6560;
-    --text-inverse: #1A1814;
-    --accent-primary: #FF6B4A;
-    --accent-primary-soft: rgba(255, 107, 74, 0.15);
-    --accent-transport: #5B9AE8;
-    --accent-transport-soft: rgba(91, 154, 232, 0.15);
-    --accent-food: #7BAF5E;
-    --accent-food-soft: rgba(123, 175, 94, 0.15);
-    --accent-culture: #A888C8;
-    --accent-culture-soft: rgba(168, 136, 200, 0.15);
-    --accent-rest: #D4A87A;
-    --accent-rest-soft: rgba(212, 168, 122, 0.15);
-    --accent-shopping: #E0906A;
-    --accent-shopping-soft: rgba(224, 144, 106, 0.15);
-    --border-subtle: rgba(240, 237, 232, 0.06);
-    --border-medium: rgba(240, 237, 232, 0.12);
-    --shadow-card: 0 1px 3px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.15);
-    --shadow-card-hover: 0 2px 8px rgba(0,0,0,0.25), 0 12px 32px rgba(0,0,0,0.2);
-    --shadow-elevated: 0 4px 16px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.25);
-    color-scheme: dark;
-  }
+/* Dark theme — activated by JS-resolved data-theme attribute on <html>.
+   useTheme.js reads user preference (auto/light/dark) and prefers-color-scheme
+   media query, then sets data-theme="dark|light" so this single selector covers
+   both forced-dark and auto-resolved-dark cases. */
+:root[data-theme="dark"] {
+  --surface-base: #1A1814;
+  --surface-card: #252220;
+  --surface-elevated: #2E2B28;
+  --text-primary: #F0EDE8;
+  --text-secondary: #9E9890;
+  --text-tertiary: #6B6560;
+  --text-inverse: #1A1814;
+  --accent-primary: #FF6B4A;
+  --accent-primary-soft: rgba(255, 107, 74, 0.15);
+  --accent-transport: #5B9AE8;
+  --accent-transport-soft: rgba(91, 154, 232, 0.15);
+  --accent-food: #7BAF5E;
+  --accent-food-soft: rgba(123, 175, 94, 0.15);
+  --accent-culture: #A888C8;
+  --accent-culture-soft: rgba(168, 136, 200, 0.15);
+  --accent-rest: #D4A87A;
+  --accent-rest-soft: rgba(212, 168, 122, 0.15);
+  --accent-shopping: #E0906A;
+  --accent-shopping-soft: rgba(224, 144, 106, 0.15);
+  --border-subtle: rgba(240, 237, 232, 0.06);
+  --border-medium: rgba(240, 237, 232, 0.12);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.15);
+  --shadow-card-hover: 0 2px 8px rgba(0,0,0,0.25), 0 12px 32px rgba(0,0,0,0.2);
+  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.25);
+  color-scheme: dark;
 }
 
 /* === Reset === */

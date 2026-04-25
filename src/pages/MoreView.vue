@@ -1,13 +1,21 @@
 <script setup>
 import { ref } from 'vue'
 import { useItinerary } from '../composables/useItinerary'
+import { useTheme } from '../composables/useTheme'
 import {
   Phone, TrainFront, Lightbulb,
   Check, RotateCcw, Shirt, Zap, FileText, Droplets, Trophy,
-  ChevronDown,
+  ChevronDown, SunMoon, Sun, Moon,
 } from 'lucide-vue-next'
 
 const { info, packingList } = useItinerary()
+const { themePref, setTheme } = useTheme()
+
+const themeOptions = [
+  { value: 'auto', label: '自動', icon: SunMoon },
+  { value: 'light', label: '淺色', icon: Sun },
+  { value: 'dark', label: '深色', icon: Moon },
+]
 
 const activeSection = ref('info')
 
@@ -66,6 +74,25 @@ function progress() {
 
 <template>
   <div class="more-view">
+    <!-- Theme Switcher -->
+    <div class="setting-row" role="group" aria-label="外觀">
+      <span class="setting-label">外觀</span>
+      <div class="theme-switch">
+        <button
+          v-for="opt in themeOptions"
+          :key="opt.value"
+          class="theme-btn"
+          :class="{ active: themePref === opt.value }"
+          :aria-label="opt.label"
+          :aria-pressed="themePref === opt.value"
+          @click="setTheme(opt.value)"
+        >
+          <component :is="opt.icon" :size="16" :stroke-width="1.75" />
+          <span class="theme-btn-label">{{ opt.label }}</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Section Toggle -->
     <div class="section-toggle">
       <button
@@ -153,6 +180,57 @@ function progress() {
 <style scoped>
 .more-view {
   padding: var(--space-md) var(--space-lg);
+}
+
+/* Theme Switcher */
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.setting-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.theme-switch {
+  display: flex;
+  gap: 2px;
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 3px;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  min-height: 32px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.theme-btn:active {
+  transform: scale(0.93);
+}
+
+.theme-btn.active {
+  background: var(--surface-card);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.theme-btn-label {
+  line-height: 1;
 }
 
 /* Toggle */
