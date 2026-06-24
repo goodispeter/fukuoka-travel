@@ -34,6 +34,12 @@ import {
   Sunset,
   CircleDot,
   Timer,
+  Car,
+  Castle,
+  Fish,
+  Waves,
+  Shirt,
+  Ship,
 } from 'lucide-vue-next'
 
 const iconMap = {
@@ -72,6 +78,12 @@ const iconMap = {
   Sunset,
   CircleDot,
   Timer,
+  Car,
+  Castle,
+  Fish,
+  Waves,
+  Shirt,
+  Ship,
 }
 
 export function resolveIcon(kebabName) {
