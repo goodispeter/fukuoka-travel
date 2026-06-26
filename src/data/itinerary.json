@@ -488,6 +488,206 @@
     {
       "date": "2026-11-10",
       "dayNum": 10,
+      "label": "糸島自駕（租車）",
+      "theme": "daytrip",
+      "events": [
+        {
+          "time": "08:30",
+          "title": "取車・自駕往糸島",
+          "category": "transport",
+          "icon": "car",
+          "location": "福岡市區 → 糸島",
+          "locationGroup": "天神・飯店②",
+          "lat": 33.5916,
+          "lng": 130.3938,
+          "note": "福岡市區→糸島走西九州道約 40 分，糸島景點分散，自駕最自由",
+          "distanceToNext": 35.0,
+          "transitToNext": { "transit": "🚗 自駕 約 40 分" }
+        },
+        {
+          "time": "09:30",
+          "title": "二見ヶ浦・夫婦岩",
+          "category": "culture",
+          "icon": "waves",
+          "location": "櫻井二見ヶ浦",
+          "locationGroup": "二見ヶ浦",
+          "lat": 33.6258,
+          "lng": 130.2072,
+          "note": "海岸白色鳥居與夫婦岩，糸島最具代表性的絕景",
+          "mapUrl": "https://maps.google.com/?q=futamigaura+itoshima",
+          "distanceToNext": 0.5,
+          "transitToNext": { "transit": "🚗 / 徒歩 5 分" }
+        },
+        {
+          "time": "11:00",
+          "title": "糸島海岸咖啡",
+          "category": "food",
+          "icon": "coffee",
+          "location": "二見ヶ浦海岸沿い",
+          "locationGroup": "二見ヶ浦",
+          "lat": 33.6240,
+          "lng": 130.2050,
+          "note": "海邊咖啡廳，邊喝咖啡邊看海（鞦韆、彩繪牆好拍）",
+          "distanceToNext": 9.0,
+          "transitToNext": { "transit": "🚗 自駕 約 20 分" }
+        },
+        {
+          "time": "12:30",
+          "title": "午餐：糸島牡蠣小屋",
+          "category": "food",
+          "icon": "utensils",
+          "location": "岐志漁港 牡蠣小屋",
+          "locationGroup": "糸島漁港",
+          "lat": 33.5519,
+          "lng": 130.1903,
+          "note": "11 月正是牡蠣小屋開張季節！現烤牡蠣與海鮮，糸島限定體驗",
+          "mapUrl": "https://maps.google.com/?q=itoshima+oyster+hut",
+          "distanceToNext": 11.0,
+          "transitToNext": { "transit": "🚗 自駕 約 20 分" }
+        },
+        {
+          "time": "14:30",
+          "title": "櫻井神社",
+          "category": "culture",
+          "icon": "landmark",
+          "location": "櫻井神社",
+          "locationGroup": "櫻井",
+          "lat": 33.6403,
+          "lng": 130.2156,
+          "note": "結緣與祈福名社，與二見ヶ浦夫婦岩相呼應",
+          "mapUrl": "https://maps.google.com/?q=sakurai+shrine+itoshima",
+          "distanceToNext": 3.0,
+          "transitToNext": { "transit": "🚗 自駕 約 10 分" }
+        },
+        {
+          "time": "15:45",
+          "title": "糸島文青雜貨・Palm Beach",
+          "category": "shopping",
+          "icon": "store",
+          "location": "糸島海岸沿い小店",
+          "locationGroup": "糸島",
+          "lat": 33.6150,
+          "lng": 130.2000,
+          "note": "海邊文青小店、果醬鹽花伴手禮，逛累就回程",
+          "distanceToNext": 35.0,
+          "transitToNext": { "transit": "🚗 自駕 約 40 分 回福岡" }
+        },
+        {
+          "time": "18:30",
+          "title": "還車・天神晚餐",
+          "category": "food",
+          "icon": "utensils",
+          "location": "天神周邊",
+          "locationGroup": "天神",
+          "lat": 33.5897,
+          "lng": 130.3990,
+          "note": "市區還車後在天神吃晚餐"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "dayNum": 11,
+      "label": "小倉城・門司港（租車）",
+      "theme": "daytrip",
+      "events": [
+        {
+          "time": "08:00",
+          "title": "取車・自駕出發",
+          "category": "transport",
+          "icon": "car",
+          "location": "福岡市區租車站",
+          "locationGroup": "天神・飯店②",
+          "lat": 33.5916,
+          "lng": 130.3938,
+          "note": "租車自駕前往北九州，福岡市區→小倉走九州道約 1 小時（記得帶國際駕照／日文譯本）",
+          "distanceToNext": 75.0,
+          "transitToNext": { "transit": "🚗 自駕 約 1 小時" }
+        },
+        {
+          "time": "09:30",
+          "title": "小倉城",
+          "category": "culture",
+          "icon": "castle",
+          "location": "小倉城",
+          "locationGroup": "小倉",
+          "lat": 33.8847,
+          "lng": 130.8736,
+          "note": "細川忠興築城，天守閣展望與庭園",
+          "mapUrl": "https://maps.google.com/?q=kokura+castle",
+          "distanceToNext": 0.6,
+          "transitToNext": { "transit": "徒歩 8 分" }
+        },
+        {
+          "time": "11:30",
+          "title": "午餐：旦過市場",
+          "category": "food",
+          "icon": "utensils",
+          "location": "旦過市場",
+          "locationGroup": "小倉",
+          "lat": 33.8830,
+          "lng": 130.8790,
+          "note": "北九州的廚房，邊逛邊吃在地小吃",
+          "mapUrl": "https://maps.google.com/?q=tanga+market+kokura",
+          "distanceToNext": 7.0,
+          "transitToNext": { "transit": "🚗 自駕 約 20 分" }
+        },
+        {
+          "time": "13:30",
+          "title": "門司港懷舊區",
+          "category": "culture",
+          "icon": "building",
+          "location": "門司港レトロ",
+          "locationGroup": "門司港",
+          "lat": 33.9461,
+          "lng": 130.9611,
+          "note": "大正時代風格的港口建築群，散步拍照",
+          "mapUrl": "https://maps.google.com/?q=mojiko+retro",
+          "distanceToNext": 0.3,
+          "transitToNext": { "transit": "徒歩 5 分" }
+        },
+        {
+          "time": "15:00",
+          "title": "燒咖哩",
+          "category": "food",
+          "icon": "utensils",
+          "location": "門司港",
+          "locationGroup": "門司港",
+          "lat": 33.9461,
+          "lng": 130.9611,
+          "note": "門司港發祥的焗烤咖哩，下午茶兼點心",
+          "distanceToNext": 1.5,
+          "transitToNext": { "transit": "🚗 / 徒歩" }
+        },
+        {
+          "time": "16:30",
+          "title": "關門海峽夕陽",
+          "category": "culture",
+          "icon": "sunset",
+          "location": "關門海峽・和布刈公園",
+          "locationGroup": "門司港",
+          "lat": 33.9617,
+          "lng": 130.9636,
+          "note": "海峽對面就是本州下關，夕陽超美",
+          "distanceToNext": 80.0,
+          "transitToNext": { "transit": "🚗 自駕 約 1 小時 回福岡" }
+        },
+        {
+          "time": "19:30",
+          "title": "還車・天神晚餐",
+          "category": "food",
+          "icon": "utensils",
+          "location": "天神周邊",
+          "locationGroup": "天神",
+          "lat": 33.5897,
+          "lng": 130.3990,
+          "note": "市區還車後在天神隨意找間店吃晚餐"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "dayNum": 12,
       "label": "海之中道・濱海公園",
       "theme": "daytrip",
       "events": [
@@ -603,206 +803,6 @@
               "cost": "420 円"
             }
           }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-11",
-      "dayNum": 11,
-      "label": "小倉城・門司港（租車）",
-      "theme": "daytrip",
-      "events": [
-        {
-          "time": "08:00",
-          "title": "取車・自駕出發",
-          "category": "transport",
-          "icon": "car",
-          "location": "福岡市區租車站",
-          "locationGroup": "天神・飯店②",
-          "lat": 33.5916,
-          "lng": 130.3938,
-          "note": "租車自駕前往北九州，福岡市區→小倉走九州道約 1 小時（記得帶國際駕照／日文譯本）",
-          "distanceToNext": 75.0,
-          "transitToNext": { "transit": "🚗 自駕 約 1 小時" }
-        },
-        {
-          "time": "09:30",
-          "title": "小倉城",
-          "category": "culture",
-          "icon": "castle",
-          "location": "小倉城",
-          "locationGroup": "小倉",
-          "lat": 33.8847,
-          "lng": 130.8736,
-          "note": "細川忠興築城，天守閣展望與庭園",
-          "mapUrl": "https://maps.google.com/?q=kokura+castle",
-          "distanceToNext": 0.6,
-          "transitToNext": { "transit": "徒歩 8 分" }
-        },
-        {
-          "time": "11:30",
-          "title": "午餐：旦過市場",
-          "category": "food",
-          "icon": "utensils",
-          "location": "旦過市場",
-          "locationGroup": "小倉",
-          "lat": 33.8830,
-          "lng": 130.8790,
-          "note": "北九州的廚房，邊逛邊吃在地小吃",
-          "mapUrl": "https://maps.google.com/?q=tanga+market+kokura",
-          "distanceToNext": 7.0,
-          "transitToNext": { "transit": "🚗 自駕 約 20 分" }
-        },
-        {
-          "time": "13:30",
-          "title": "門司港懷舊區",
-          "category": "culture",
-          "icon": "building",
-          "location": "門司港レトロ",
-          "locationGroup": "門司港",
-          "lat": 33.9461,
-          "lng": 130.9611,
-          "note": "大正時代風格的港口建築群，散步拍照",
-          "mapUrl": "https://maps.google.com/?q=mojiko+retro",
-          "distanceToNext": 0.3,
-          "transitToNext": { "transit": "徒歩 5 分" }
-        },
-        {
-          "time": "15:00",
-          "title": "燒咖哩",
-          "category": "food",
-          "icon": "utensils",
-          "location": "門司港",
-          "locationGroup": "門司港",
-          "lat": 33.9461,
-          "lng": 130.9611,
-          "note": "門司港發祥的焗烤咖哩，下午茶兼點心",
-          "distanceToNext": 1.5,
-          "transitToNext": { "transit": "🚗 / 徒歩" }
-        },
-        {
-          "time": "16:30",
-          "title": "關門海峽夕陽",
-          "category": "culture",
-          "icon": "sunset",
-          "location": "關門海峽・和布刈公園",
-          "locationGroup": "門司港",
-          "lat": 33.9617,
-          "lng": 130.9636,
-          "note": "海峽對面就是本州下關，夕陽超美",
-          "distanceToNext": 80.0,
-          "transitToNext": { "transit": "🚗 自駕 約 1 小時 回福岡" }
-        },
-        {
-          "time": "19:30",
-          "title": "還車・天神晚餐",
-          "category": "food",
-          "icon": "utensils",
-          "location": "天神周邊",
-          "locationGroup": "天神",
-          "lat": 33.5897,
-          "lng": 130.3990,
-          "note": "市區還車後在天神隨意找間店吃晚餐"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "dayNum": 12,
-      "label": "糸島自駕（租車）",
-      "theme": "daytrip",
-      "events": [
-        {
-          "time": "08:30",
-          "title": "取車・自駕往糸島",
-          "category": "transport",
-          "icon": "car",
-          "location": "福岡市區 → 糸島",
-          "locationGroup": "天神・飯店②",
-          "lat": 33.5916,
-          "lng": 130.3938,
-          "note": "福岡市區→糸島走西九州道約 40 分，糸島景點分散，自駕最自由",
-          "distanceToNext": 35.0,
-          "transitToNext": { "transit": "🚗 自駕 約 40 分" }
-        },
-        {
-          "time": "09:30",
-          "title": "二見ヶ浦・夫婦岩",
-          "category": "culture",
-          "icon": "waves",
-          "location": "櫻井二見ヶ浦",
-          "locationGroup": "二見ヶ浦",
-          "lat": 33.6258,
-          "lng": 130.2072,
-          "note": "海岸白色鳥居與夫婦岩，糸島最具代表性的絕景",
-          "mapUrl": "https://maps.google.com/?q=futamigaura+itoshima",
-          "distanceToNext": 0.5,
-          "transitToNext": { "transit": "🚗 / 徒歩 5 分" }
-        },
-        {
-          "time": "11:00",
-          "title": "糸島海岸咖啡",
-          "category": "food",
-          "icon": "coffee",
-          "location": "二見ヶ浦海岸沿い",
-          "locationGroup": "二見ヶ浦",
-          "lat": 33.6240,
-          "lng": 130.2050,
-          "note": "海邊咖啡廳，邊喝咖啡邊看海（鞦韆、彩繪牆好拍）",
-          "distanceToNext": 9.0,
-          "transitToNext": { "transit": "🚗 自駕 約 20 分" }
-        },
-        {
-          "time": "12:30",
-          "title": "午餐：糸島牡蠣小屋",
-          "category": "food",
-          "icon": "utensils",
-          "location": "岐志漁港 牡蠣小屋",
-          "locationGroup": "糸島漁港",
-          "lat": 33.5519,
-          "lng": 130.1903,
-          "note": "11 月正是牡蠣小屋開張季節！現烤牡蠣與海鮮，糸島限定體驗",
-          "mapUrl": "https://maps.google.com/?q=itoshima+oyster+hut",
-          "distanceToNext": 11.0,
-          "transitToNext": { "transit": "🚗 自駕 約 20 分" }
-        },
-        {
-          "time": "14:30",
-          "title": "櫻井神社",
-          "category": "culture",
-          "icon": "landmark",
-          "location": "櫻井神社",
-          "locationGroup": "櫻井",
-          "lat": 33.6403,
-          "lng": 130.2156,
-          "note": "結緣與祈福名社，與二見ヶ浦夫婦岩相呼應",
-          "mapUrl": "https://maps.google.com/?q=sakurai+shrine+itoshima",
-          "distanceToNext": 3.0,
-          "transitToNext": { "transit": "🚗 自駕 約 10 分" }
-        },
-        {
-          "time": "15:45",
-          "title": "糸島文青雜貨・Palm Beach",
-          "category": "shopping",
-          "icon": "store",
-          "location": "糸島海岸沿い小店",
-          "locationGroup": "糸島",
-          "lat": 33.6150,
-          "lng": 130.2000,
-          "note": "海邊文青小店、果醬鹽花伴手禮，逛累就回程",
-          "distanceToNext": 35.0,
-          "transitToNext": { "transit": "🚗 自駕 約 40 分 回福岡" }
-        },
-        {
-          "time": "18:30",
-          "title": "還車・天神晚餐",
-          "category": "food",
-          "icon": "utensils",
-          "location": "天神周邊",
-          "locationGroup": "天神",
-          "lat": 33.5897,
-          "lng": 130.3990,
-          "note": "市區還車後在天神吃晚餐"
         }
       ]
     },
@@ -1099,7 +1099,7 @@
       "LINK HOUSE HOTEL 訂房確認（11/6~9）",
       "伊薩飯店-天神 訂房確認（11/9~14）",
       "馬拉松報名確認信",
-      "國際駕照 / 駕照日文譯本（11/11、11/12 租車必備）",
+      "國際駕照 / 駕照日文譯本（11/10、11/11 租車必備）",
       "租車預約確認",
       "旅遊保險單",
       "日幣現金"
@@ -1125,7 +1125,7 @@
       { "label": "機場到天神", "value": "地鐵空港線 11 分 / 260 円" },
       { "label": "機場到博多", "value": "地鐵空港線 5 分 / 260 円" },
       { "label": "一日券", "value": "福岡市地鐵一日券 640 円" },
-      { "label": "租車（11/11、11/12）", "value": "需國際駕照或日文譯本，建議事先網路預約" }
+      { "label": "租車（11/10、11/11）", "value": "需國際駕照或日文譯本，建議事先網路預約" }
     ],
     "useful": [
       { "label": "天氣", "value": "11 月平均 12-18°C，偶有雨" },

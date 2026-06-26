@@ -46,11 +46,10 @@
       "date": "2026-11-10",
       "dayNum": 10,
       "items": [
-        { "category": "transport", "label": "JR 海之中道往返", "amount": 1500 },
-        { "category": "activity", "label": "海之中道水族館門票", "amount": 2500 },
-        { "category": "food", "label": "午餐", "amount": 1500 },
-        { "category": "food", "label": "LaLaport 晚餐", "amount": 1800 },
-        { "category": "shopping", "label": "LaLaport 購物", "amount": 6000 },
+        { "category": "transport", "label": "租車 + 汽油", "amount": 9000 },
+        { "category": "food", "label": "海岸咖啡", "amount": 1000 },
+        { "category": "food", "label": "糸島牡蠣小屋", "amount": 3000 },
+        { "category": "food", "label": "天神晚餐", "amount": 2000 },
         { "category": "accommodation", "label": "伊薩飯店-天神", "amount": 9000 }
       ]
     },
@@ -70,10 +69,11 @@
       "date": "2026-11-12",
       "dayNum": 12,
       "items": [
-        { "category": "transport", "label": "租車 + 汽油", "amount": 9000 },
-        { "category": "food", "label": "海岸咖啡", "amount": 1000 },
-        { "category": "food", "label": "糸島牡蠣小屋", "amount": 3000 },
-        { "category": "food", "label": "天神晚餐", "amount": 2000 },
+        { "category": "transport", "label": "JR 海之中道往返", "amount": 1500 },
+        { "category": "activity", "label": "海之中道水族館門票", "amount": 2500 },
+        { "category": "food", "label": "午餐", "amount": 1500 },
+        { "category": "food", "label": "LaLaport 晚餐", "amount": 1800 },
+        { "category": "shopping", "label": "LaLaport 購物", "amount": 6000 },
         { "category": "accommodation", "label": "伊薩飯店-天神", "amount": 9000 }
       ]
     },
