@@ -37,8 +37,9 @@
       "dayNum": 9,
       "items": [
         { "category": "transport", "label": "市內交通（含換飯店）", "amount": 1500 },
+        { "category": "transport", "label": "第二批 機場→天神 交通", "amount": 1200 },
         { "category": "food", "label": "水炊き 午餐", "amount": 2500 },
-        { "category": "food", "label": "海鮮居酒屋晚餐", "amount": 3500 },
+        { "category": "food", "label": "鰻 三代目 源內晚餐", "amount": 4000 },
         { "category": "accommodation", "label": "伊薩飯店-天神", "amount": 9000 }
       ]
     },
@@ -46,10 +47,11 @@
       "date": "2026-11-10",
       "dayNum": 10,
       "items": [
-        { "category": "transport", "label": "租車 + 汽油", "amount": 9000 },
-        { "category": "food", "label": "海岸咖啡", "amount": 1000 },
-        { "category": "food", "label": "糸島牡蠣小屋", "amount": 3000 },
-        { "category": "food", "label": "天神晚餐", "amount": 2000 },
+        { "category": "transport", "label": "市內交通（地鐵/徒歩）", "amount": 800 },
+        { "category": "activity", "label": "麵包超人博物館門票", "amount": 2200 },
+        { "category": "food", "label": "運河城午餐", "amount": 1500 },
+        { "category": "shopping", "label": "Alpen 運動用品採購", "amount": 5000 },
+        { "category": "food", "label": "中洲屋台 晚餐", "amount": 2500 },
         { "category": "accommodation", "label": "伊薩飯店-天神", "amount": 9000 }
       ]
     },
@@ -57,11 +59,11 @@
       "date": "2026-11-11",
       "dayNum": 11,
       "items": [
-        { "category": "transport", "label": "租車 + 高速 + 汽油", "amount": 11000 },
-        { "category": "activity", "label": "小倉城門票", "amount": 350 },
-        { "category": "food", "label": "旦過市場午餐", "amount": 1500 },
-        { "category": "food", "label": "門司港燒咖哩", "amount": 1200 },
-        { "category": "food", "label": "天神晚餐", "amount": 2000 },
+        { "category": "transport", "label": "西鐵 天神↔太宰府", "amount": 840 },
+        { "category": "transport", "label": "竈門神社 まほろば号巴士", "amount": 200 },
+        { "category": "activity", "label": "和服體驗租借", "amount": 4000 },
+        { "category": "food", "label": "一蘭 合格拉麵 午餐", "amount": 1200 },
+        { "category": "food", "label": "天神晚餐", "amount": 2500 },
         { "category": "accommodation", "label": "伊薩飯店-天神", "amount": 9000 }
       ]
     },
@@ -81,10 +83,10 @@
       "date": "2026-11-13",
       "dayNum": 13,
       "items": [
-        { "category": "transport", "label": "西鐵 天神↔太宰府", "amount": 840 },
-        { "category": "activity", "label": "和服體驗租借", "amount": 4000 },
-        { "category": "activity", "label": "九州國立博物館", "amount": 700 },
-        { "category": "food", "label": "梅ヶ枝餅 + 午餐", "amount": 1600 },
+        { "category": "transport", "label": "JR 小倉・門司港往返", "amount": 5000 },
+        { "category": "activity", "label": "小倉城門票", "amount": 350 },
+        { "category": "food", "label": "旦過市場午餐", "amount": 1500 },
+        { "category": "food", "label": "門司港燒咖哩", "amount": 1200 },
         { "category": "food", "label": "明太子晚餐", "amount": 2000 },
         { "category": "accommodation", "label": "伊薩飯店-天神", "amount": 9000 }
       ]
@@ -93,8 +95,8 @@
       "date": "2026-11-14",
       "dayNum": 14,
       "items": [
-        { "category": "transport", "label": "博多→機場 地鐵", "amount": 260 },
-        { "category": "food", "label": "拉麵競技場午餐", "amount": 1200 },
+        { "category": "transport", "label": "天神→機場 地鐵", "amount": 260 },
+        { "category": "food", "label": "天神午餐", "amount": 1200 },
         { "category": "shopping", "label": "伴手禮 + 機場免稅", "amount": 6000 }
       ]
     }
